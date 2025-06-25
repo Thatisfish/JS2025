@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="numberInput">
+            <span>倍數檢查</span>
+            <br>
+            <span>數字1:</span>
+            <input type="text" placeholder="請輸入數字" id="number1Input" autofocus>
+            <br>
+            <span>數字2:</span>
+            <input type="text" placeholder="請輸入數字" id="number2Input">
+            <br>
+            <button class="submitBtn">提交</button>
+
+        </label>
+    </form>
+
+    <script>
+        var number1Input = document.getElementById("number1Input");
+        var number2Input = document.getElementById("number2Input");
+        var submitBtn = document.querySelector(".submitBtn");
+
+        function FsubmitBtn(value) {
+            var str = "";
+            var number1Value = number1Input.value;
+            var number2Value = number2Input.value;
+            if (number1Value > number2Value) {
+                if (number1Value % number2Value == 0) {
+                    str = `${number1Value}是${number2Value} 的倍數(${number1Value / number2Value}倍)`;
+                } 
+                else{
+                    str = `${number1Value}不是${number2Value} 的倍數`;
+                    console.log(number1Value);
+                    console.log(number2Value);
+                }
+            }else {
+                str = `數字1必須大於數字2`;
+            }
+            alert(str);
+        }
+    
+        submitBtn.addEventListener("click", FsubmitBtn);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="accounInput">
+            <span>帳號:</span>
+            <input type="text" id="accounInput" autofocus>
+            <br>
+            <span>密碼:</span>
+            <input type="text" id="passwordInput">
+            <br>
+            <button class="submitBtn">提交</button>
+            <button type="reset">重製</button>
+        </label>
+    </form>
+
+    <script>
+        var accountInput = document.getElementById("accounInput");
+        var passwordInput = document.getElementById("passwordInput");
+        var submitBtn = document.querySelector(".submitBtn");
+
+        function FsubmitBtn(value) {
+            var str = "";
+            var accValue = accounInput.value;
+            var passValue = passwordInput.value;
+
+            if (accValue == "admin" && passValue == "1234") {
+                str = accValue + "\n" + passValue + "\n帳密正確";
+            } else if (accValue == "admin" && passValue != "1234") {
+                str = accValue + "\n" + passValue + "\n密碼錯誤";
+            } else if (accValue != "admin" && passValue == "1234") {
+                str = accValue + "\n" + passValue + "\n帳號錯誤";
+            } else if (accValue != "admin" && passValue != "1234") {
+                str = accValue + "\n" + passValue + "\n帳密都錯";
+            }
+            alert(str);
+        }
+        submitBtn.addEventListener("click", FsubmitBtn);
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="scoreInput">
+            <span>GPA換算:</span>
+            <input type="text" placeholder="請輸入分數" id="scoreInput" autofocus>
+            <br>
+            <button class="submitBtn">提交</button>
+            <button type="reset">重製</button>
+        </label>
+    </form>
+
+    <script>
+        var scoreInput = document.getElementById("scoreInput");
+        var submitBtn = document.querySelector(".submitBtn");
+
+        function FsubmitBtn(value) {
+            var str = "";
+            var scoreValue = scoreInput.value;
+
+            if(scoreValue>100||scoreValue<0){
+                str = "分數錯誤,請重新輸入";
+            }else if(scoreValue>=95){
+                str = "A+";
+            }else if(scoreValue>=87){
+                str = "A";
+            }else if(scoreValue>=82){
+                str = "A-";
+            }else if(scoreValue>=78){
+                str = "B+";
+            }else if(scoreValue>=75){
+                str = "B";
+            }else if(scoreValue>=70){
+                str = "B-";
+            }else if(scoreValue>=68){
+                str = "C+";
+            }else if(scoreValue>=65){
+                str = "C";
+            }else if(scoreValue>=60){
+                str = "C-";
+            }else if(scoreValue<=60){
+                str = "F,不及格";
+            }
+            alert(str);
+        }      
+        
+        submitBtn.addEventListener("click", FsubmitBtn);
+    </script>
+</body>
+</html>

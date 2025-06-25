@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="numberInput">
+            <span>奇偶數判斷:</span>
+            <input type="text" placeholder="請輸入數字" id="numberInput" autofocus>
+            <br>
+            <button class="submitBtn">提交</button>
+            <button type="reset">重製</button>
+        </label>
+    </form>
+
+    <script>
+        var numberInput = document.getElementById("numberInput");
+        var submitBtn = document.querySelector(".submitBtn");
+        
+        function FsubmitBtn(value) {
+            var str = "";
+            var numberValue = numberInput.value;
+            if (numberValue % 2 == 0) {
+                str="偶數";
+            } else if (numberValue % 2 != 0) {
+                str="奇數";
+            }
+            alert(str);
+        }      
+        submitBtn.addEventListener("click", FsubmitBtn);
+
+        
+        
+    </script>
+</body>
+
+</html>
