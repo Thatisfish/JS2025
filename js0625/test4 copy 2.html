@@ -28,13 +28,15 @@
         var number2Input = document.getElementById("number2Input");
         var submitBtn = document.querySelector(".submitBtn");
 
-        function FsubmitBtn(value) {
+        function FsubmitBtn(event) {
+            // event.preventDefault(); // ← 防止表單送出後頁面刷新
+
             var str = "";
             var number1Value = Number(number1Input.value);
             var number2Value = Number(number2Input.value);
 
             if (number1Value > number2Value) {
-                if (number1Value % number2Value == 0) {
+                if (number1Value % number2Value === 0) {
                     str = `${number1Value}是${number2Value} 的倍數(${number1Value / number2Value}倍)`;
                 } else {
                     str = `${number1Value}不是${number2Value} 的倍數`;
@@ -42,6 +44,7 @@
             } else {
                 str = `數字1必須大於數字2`;
             }
+
             alert(str);
         }
 
