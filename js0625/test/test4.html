@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="scoreInput">
+            <span>票價費用試算:</span>
+            <br>
+            <span>全票:</span>
+            <input type="text" placeholder="請輸入張數" id="rtInput" autofocus>
+            <br>
+            <span>優待票:</span>
+            <input type="text" placeholder="請輸入張數" id="ctInput" >
+            <br>
+            <span>敬老票:</span>
+            <input type="text" placeholder="請輸入張數" id="otInput" >
+            <br>
+            <button class="submitBtn">提交</button>
+            <button type="reset">重製</button>
+        </label>
+    </form>
+
+    <script>
+        var rtInput = document.getElementById("rtInput");
+        var ctInput = document.getElementById("ctInput");
+        var otInput = document.getElementById("otInput");
+        var submitBtn = document.querySelector(".submitBtn");
+        
+
+        function FsubmitBtn(value) {
+            var rt=500;
+            var tiket=Number(tiket);
+            var rtValue = rtInput.value;
+            var ctValue = ctInput.value;
+            var otValue = otInput.value;
+
+            tiket=500*rtValue+500*0.8*ctValue+500*0.7*otValue;
+            alert(`全票${rtValue}張,優待票${ctValue}張,敬老${otValue}張,票價為${tiket}`);
+        }      
+        
+        submitBtn.addEventListener("click", FsubmitBtn);
+    </script>
+</body>
+</html>

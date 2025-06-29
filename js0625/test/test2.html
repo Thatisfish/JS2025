@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="numberInput">
+            <span>水費查詢</span>
+            <br>
+            <span>請輸入用水度數</span>
+            <input type="text" placeholder="請輸入數字" id="waterInput" autofocus>
+            <br>
+            <button class="submitBtn">提交</button>
+        </label>
+    </form>
+
+    <script>
+        var waterInput = document.getElementById("waterInput");
+        var submitBtn = document.querySelector(".submitBtn");
+        function FsubmitBtn(value) {
+            var waterValue = Number(waterInput.value);
+            var coin="";
+
+            if (waterValue <= 10 && waterValue > 0) {
+                coin = waterValue * 7.35;
+            } else if (waterValue <= 30) {
+                coin = waterValue * 9.45;
+            } else if (waterValue <= 50) {
+                coin = waterValue * 11.55;
+            } else if (waterValue > 50) {
+                coin = waterValue * 12.075;
+            }
+            alert(Math.floor(Number(coin)));
+        }
+        submitBtn.addEventListener("click", FsubmitBtn);
+    </script>
+</body>
+
+</html>
