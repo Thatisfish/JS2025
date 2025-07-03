@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">數值1</label>
+    <input type="number" id="n1">
+    <br>
+    <label for="">數值2</label>
+    <input type="number" id="n2">
+    <button onclick="tot()">加總</button>
+    <br>
+    <p id="result">總和</p>
+
+    <script>
+        function tot(){
+            var n1=document.getElementById("n1");
+            // document.write(n1.value);
+            document.getElementById("result").textContent=n1.value;
+        }
+    </script>
+</body>
+</html>

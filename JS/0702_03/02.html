@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var s = 0, j = 0, a = 0, c = 0;
+        for(var i=1;i<=10;i++){
+            document.write(`${s}+${i}=`);
+            s=s+i;
+            document.write(`${s}<br>`);
+        }
+        document.write("<hr>");
+
+        for(var k=1;k<=100;k+=2){
+            document.write(`${j}+${j}=`);
+            j=j+k;
+            document.write(`${j}<br>`);
+        }
+        document.write("<hr>");
+
+        for(var b=100;b>0;b-=2){
+            document.write(`${a}+${b}=`);
+            a=a+b;
+            document.write(`${a}<br>`);
+        }
+        document.write("<hr>");
+
+        for (var d = 1; d <= 100; d++) {
+            if (d % 3 == 0 && d % 5 == 0) {
+                document.write(`${c}+${d}=`);
+                c = c + d;
+                document.write(`${c}<br>`);
+            }
+        }
+        document.write("<hr>");
+    </script>
+</body>
+
+</html>
