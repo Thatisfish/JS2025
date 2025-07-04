@@ -18,31 +18,29 @@
             var g=0,b=0,alls=0,p=0;
             while(1){
                 var score=prompt("請輸入成績");
-            score=Number(score);
-            if(score==null||score==-1){
-                break;
-            }else if(score==""){
-                alert("分數不能空白,請重新輸入");
-                // continue;
-            }else if(score<1||score>100){
-                alert("範圍錯誤,請重新輸入");
-                // continue;
-            }else if(isNaN(Number(score))   ){
-                alert("非數值,請重新輸入");
-                // continue;   
-            }else if(score>=60){
-                g++;
-                p++;
-                alls=alls+score;
-            }else if(score<60){
-                b++;
-                p++;
-                alls=alls+score;
-            }
-            document.getElementById("good").textContent=`及格人數:${g}`
-            document.getElementById("bad").textContent=`不及格人數:${b}`
-            document.getElementById("alls").textContent=`全班總分:${alls}`
-            document.getElementById("p").textContent=`全班平均:${alls/p}`
+                score=Number(score);
+                if(score==null||score==-1){
+                    break;
+                }else if(score==""){
+                    alert("分數不能空白,請重新輸入");
+                }else if(score<1||score>100){
+                    alert("範圍錯誤,請重新輸入");
+                }else if(isNaN(score)){
+                    alert("非數值,請重新輸入");
+                }else if(score>=60){
+                    g++;
+                    p++;
+                    alls=alls+score;
+                }else if(score<60){
+                    b++;
+                    p++;
+                    alls=alls+score;
+                }
+                console.log(typeof(score));
+                document.getElementById("good").textContent=`及格人數:${g}`
+                document.getElementById("bad").textContent=`不及格人數:${b}`
+                document.getElementById("alls").textContent=`全班總分:${alls}`
+                document.getElementById("p").textContent=`全班平均:${alls/p}`
             }  
         }
     </script>
