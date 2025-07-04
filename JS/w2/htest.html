@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="again()">再玩一次</button>
+    <script>
+        again();
+        function again() {
+            var rd = Math.random() * 100 + 1;
+            var t = 0, small = 1, large = 100;
+            rd = Math.floor(rd);
+            var ans = prompt("猜數字遊戲,範圍1~100");
+            while (1) {
+                ans=ans.trim()
+                if (ans == null) {
+                    break;
+                } else if (ans == "") {
+                    alert("答案不能空白,請重新輸入");
+                } else if (ans < 1 || ans > 100) {
+                    alert("範圍錯誤,請重新輸入");
+                } else if (isNaN(ans)) {
+                    alert("非數值,請重新輸入");
+                } else if (Number(ans) > Number(rd)) {
+                    alert(`數字太大了,數字介於${small}~${ans}`);
+                    large = ans;
+                    t++;
+                    ans=prompt(`猜數字遊戲,範圍${small}~${ans}`);
+                } else if (Number(ans) < Number(rd)) {
+                    alert(`數字太小了,數字介於${ans}~${large}`);
+                    small = ans;
+                    t++;
+                    ans=prompt(`猜數字遊戲,範圍${ans}~${large}`);
+                } else if (ans == rd) {
+                    alert("恭喜你答對了");
+                    break;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
