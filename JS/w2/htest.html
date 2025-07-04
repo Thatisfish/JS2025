@@ -27,12 +27,12 @@
                 } else if (isNaN(ans)) {
                     alert("非數值,請重新輸入");
                 } else if (Number(ans) > Number(rd)) {
-                    alert(`數字太大了,數字介於${small}~${ans}`);
+                    alert(`${ans}=>數字太大了,數字介於${small}~${ans}`);
                     large = ans;
                     t++;
                     ans=prompt(`猜數字遊戲,範圍${small}~${ans}`);
                 } else if (Number(ans) < Number(rd)) {
-                    alert(`數字太小了,數字介於${ans}~${large}`);
+                    alert(`${ans}=>數字太小了,數字介於${ans}~${large}`);
                     small = ans;
                     t++;
                     ans=prompt(`猜數字遊戲,範圍${ans}~${large}`);
