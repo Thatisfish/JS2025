@@ -18,8 +18,12 @@
     <script>
         function tot(){
             var n1=document.getElementById("n1");
-            // document.write(n1.value);
-            document.getElementById("result").textContent=n1.value;
+            var n2=document.getElementById("n2");
+            
+            console.log(typeof n1.value);
+            console.log(typeof parseInt(n1.value));
+
+            document.getElementById("result").textContent=parseInt(n1.value)+parseInt(n2.value);
         }
     </script>
 </body>

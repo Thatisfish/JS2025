@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     var s=0,num=1;
+    //     while(num<=5){
+    //         s+=num;
+    //         num++;
+    //     }
+    //     document.write(`1+2+3+4+5=${s}`);
+
+    do{
+        var month=prompt("請輸入月份");
+        if(month==null){
+            break;
+        }else if(month==""){
+            alert("月份不能空白,請重新輸入");
+            continue;
+        }else if(month<1||month>12){
+            alert("範圍錯誤,請重新輸入");
+            continue;
+        }else if(isNaN(Number(month))   ){
+            alert("非數值,請重新輸入");
+            continue;   
+        }
+        alert("輸入的月份為:"+month);
+    }while(1)
+    </script>
+</body>
+</html>

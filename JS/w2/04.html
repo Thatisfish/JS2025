@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">數值1</label>
+    <input type="number" id="n1">
+    <br><br>
+    <button onclick="calc('+')">+</button>
+    <button onclick="calc('-')">-</button>
+    <button onclick="calc('*')">x</button>
+    <button onclick="calc('/')">/</button>
+    <br><br>
+    <label for="">數值2</label>
+    <input type="number" id="n2">
+    <br>
+    <p id="result">總和</p>
+
+    <script>
+        var n1=document.getElementById("n1");
+        var n2=document.getElementById("n2");
+
+        function calc(op){
+            switch(op){
+                case '+':
+                    document.getElementById("result").textContent=parseInt(n1.value)+parseInt(n2.value);
+                    break;
+                case '-':
+                    document.getElementById("result").textContent=parseInt(n1.value)-parseInt(n2.value);
+                    break;
+                case '*':
+                    document.getElementById("result").textContent=parseInt(n1.value)*parseInt(n2.value);
+                    break;
+                case '/':
+                    document.getElementById("result").textContent=parseInt(n1.value)/parseInt(n2.value);
+                    break;
+            }
+        }
+
+        // function Addition(){
+        //     document.getElementById("result").textContent=parseInt(n1.value)+parseInt(n2.value);
+        // }
+
+        // function subtraction(){
+        //     document.getElementById("result").textContent=parseInt(n1.value)-parseInt(n2.value);
+        // }
+
+        // function multiplication(){
+        //     document.getElementById("result").textContent=parseInt(n1.value)*parseInt(n2.value);
+        // }
+
+        // function division(){
+        //     document.getElementById("result").textContent=parseInt(n1.value)/parseInt(n2.value);
+        // }
+    </script>
+</body>
+</html>
