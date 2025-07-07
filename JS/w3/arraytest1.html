@@ -11,13 +11,28 @@
     <script>
         let arr1 = [1, 2, "a", 4, 5, "12345"];
         // for
+        console.log("for")
         for (var i = 0; i <= arr1.length; i++) {
-            if (arr1[i] == "String") {
+            if (typeof arr1[i] == "string") {
                 console.log(arr1[i]);
             }
         }
         // for of
+        console.log("-")
+        console.log("for of")
+        for (let n of arr1) {
+            if (typeof n == "string") {
+                console.log(n);
+            }
+        }
         // forEach
+        console.log("-")
+        console.log("forEach")
+        arr1.forEach((n)=>{
+            if (typeof n == "string") {
+                console.log(n);
+            }
+        })
     </script>
 </body>
 
