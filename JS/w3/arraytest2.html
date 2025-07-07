@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr1 = [5, 60, 3, 90, 33, 1, 100];
+        let m,s;
+        m=s=arr1[0];
+        // for
+        console.log("for")
+        for (var i = 0; i < arr1.length;i++){
+            if(arr1[i]>m){
+                m=arr1[i];
+            }
+            if(arr1[i]<s){
+                s=arr1[i];
+            }
+            console.log(`最大值為${m},最小值為${s}`);
+        }
+        
+        // for of
+        console.log("for of")
+        m=s=arr1[0];
+        for(let n of arr1){
+            if(n>m){
+                m=n;
+            }
+            if(n<s){
+                s=n;
+            }
+            console.log(`最大值為${m},最小值為${s}`);
+        }
+
+        // forEach
+        console.log("forEach")
+        m=s=arr1[0];
+        arr1.forEach((a)=>{
+            if(a>m){
+                m=a;
+            }
+            if(a<s){
+                s=a;
+            }
+            console.log(`最大值為${m},最小值為${s}`);
+        })
+
+    </script>
+</body>
+
+</html>
