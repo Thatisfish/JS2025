@@ -13,7 +13,7 @@
         // for
         console.log("for")
         for (var i = 0; i <= arr1.length; i++) {
-            if (typeof arr1[i] == "string") {
+            if (typeof arr1[i] === "string") {
                 console.log(arr1[i]);
             }
         }
@@ -21,7 +21,7 @@
         console.log("-")
         console.log("for of")
         for (let n of arr1) {
-            if (typeof n == "string") {
+            if (typeof n === "string") {
                 console.log(n);
             }
         }
@@ -29,7 +29,7 @@
         console.log("-")
         console.log("forEach")
         arr1.forEach((n)=>{
-            if (typeof n == "string") {
+            if (typeof n === "string") {
                 console.log(n);
             }
         })
