@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>樂透號碼產生器</h2>
+    <p>請選擇你要產生的樂透號碼</p>
+    <button onclick="power()">威力彩</button>
+    <button onclick="big()">大樂透</button>
+    <button onclick="today()">今彩</button>
+    <p id="result"></p>
+    <p id="result2"></p>
+    <script>
+        let result = document.getElementById("result")
+        function power() {
+            let sarry1 = [];
+            while (sarry1.length < 6) {
+                let rd1 = Math.floor(Math.random() * 38) + 1;
+                if (!sarry1.includes(rd1)) {
+                    sarry1.push(rd1);
+                }
+            }
+            let s1 = Math.floor(Math.random() * 8) + 1;
+            result.innerHTML = `威力彩號碼: ${sarry1.join("、")}, 特別號: ${s1}`;
+            sarry1.sort(function(a,b){return a-b;});
+            result2.innerHTML = `威力彩號碼(重新排序後): ${sarry1.join("、")}, 特別號: ${s1}`;
+        }
+
+        function big() {//2.大 1~49>6 ; 1~49>1
+            let sarry2 = [];
+            while (sarry2.length < 6) {
+                let rd2 = Math.floor(Math.random() * 38) + 1;
+                if (!sarry2.includes(rd2)) {
+                    sarry2.push(rd2);
+                }
+            }
+            let s2 = Math.floor(Math.random() * 8) + 1;
+            result.innerHTML = `大樂透號碼: ${sarry2.join("、")}, 特別號: ${s2}`;
+            sarry2.sort(function(a,b){return a-b;});
+            result2.innerHTML = `大樂透號碼(重新排序後): ${sarry2.join("、")}, 特別號: ${s2}`;
+        }
+
+        function today() {// // 3.今 1~39>5
+            let sarry3 = [];
+            while (sarry3.length < 6) {
+                let rd3 = Math.floor(Math.random() * 38) + 1;
+                if (!sarry3.includes(rd3)) {
+                    sarry3.push(rd3);
+                }
+            }
+            let s3 = Math.floor(Math.random() * 8) + 1;
+            result.innerHTML = `今彩號碼: ${sarry3.join("、")}`;
+            sarry3.sort(function(a,b){return a-b;});
+            result2.innerHTML = `今彩號碼(重新排序後): ${sarry3.join("、")}`;
+        }
+
+    </script>
+</body>
+
+</html>
