@@ -27,7 +27,7 @@
             }
             let s1 = Math.floor(Math.random() * 8) + 1;
             result.innerHTML = `威力彩號碼: ${sarry1.join("、")}, 特別號: ${s1}`;
-            sarry1.sort(function(a,b){return a-b;});
+            sarry1.sort(function (a, b) { return a - b; });
             result2.innerHTML = `威力彩號碼(重新排序後): ${sarry1.join("、")}, 特別號: ${s1}`;
         }
 
@@ -40,9 +40,13 @@
                 }
             }
             let s2 = Math.floor(Math.random() * 49) + 1;
-            result.innerHTML = `大樂透號碼: ${sarry2.join("、")}, 特別號: ${s2}`;
-            sarry2.sort(function(a,b){return a-b;});
-            result2.innerHTML = `大樂透號碼(重新排序後): ${sarry2.join("、")}, 特別號: ${s2}`;
+            let sp;
+            if (!sarry2.includes(s2)) {
+                sp=s2;
+            }
+            result.innerHTML = `大樂透號碼: ${sarry2.join("、")}, 特別號: ${sp}`;
+            sarry2.sort(function (a, b) { return a - b; });
+            result2.innerHTML = `大樂透號碼(重新排序後): ${sarry2.join("、")}, 特別號: ${sp}`;
         }
 
         function today() {// // 3.今 1~39>5
@@ -54,7 +58,7 @@
                 }
             }
             result.innerHTML = `今彩號碼: ${sarry3.join("、")}`;
-            sarry3.sort(function(a,b){return a-b;});
+            sarry3.sort(function (a, b) { return a - b; });
             result2.innerHTML = `今彩號碼(重新排序後): ${sarry3.join("、")}`;
         }
 
