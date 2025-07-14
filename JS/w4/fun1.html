@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>函式</h1><hr>
+    請輸入姓名:<input type="text" id="name" autofocus>
+    <button onclick="sayHi3()">確定</button>
+    <p id="show"></p>
+    <script>
+        // function sum(a,b){
+        //     return a+b;
+        // }
+        
+        // let n1=50,n2=30;
+        // let tot=sum(n1,n2);
+        // document.write(`${n1}+${n2}=${tot}`);
+        // function sayHi(){
+        //     alert("Hi");
+        // }
+        // function sayHi2(name){
+        //     alert("Hi,"+name);
+        // }
+        
+        // let userName=prompt("你的名字");
+        // sayHi2(userName)
+
+        function sayHi3(){
+            let name=document.getElementById("name");
+            let show=document.getElementById("show");
+            show.innerText="Hi,\n"+name.value;
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

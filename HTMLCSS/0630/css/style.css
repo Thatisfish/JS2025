@@ -1,0 +1,125 @@
+@charset "UTF-8";
+/* css變數 */
+:root{
+    /* 灰階 */
+    --deep:#444;
+    --dark:#666;
+    --grey:#999;
+    --light:#f1f1f1;
+    /* 背景 */
+    --bg-1:#f2edf0;
+    --bg-2:#e6ece5;
+    --bg-3:#ecf0f4;
+    /* 輔助 */
+    --lesser-1:#f3e4e4;
+    --lesser-2:#efdbdb;
+    --lesser-3:#cdaaab;
+    --lesser-4:#8f6d6d;
+    /* 透明 */
+    --alpha-w-20:rgba(255,255,255,0.2);
+    /* 尺寸 */
+}
+
+/* css reset */
+*{
+    box-sizing: border-box;/* 不累加內距及邊框 */
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+}
+/* 重置字體 */
+body {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+}
+/* 重置標題 */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+/* 重置列表 */
+ul, ol {
+    list-style: none;
+}
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+/* 重置連接 */
+a {
+    display: block;/* inline不支援 */
+    color: #666 ;
+    text-decoration: none;
+}
+
+/* 頁首區 */
+#topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+div.logo{
+    width: 55px;
+}
+
+#topbar ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* icon選單 */
+#topbar .icon a{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+/* .svg自動縮放 寬fill,高auto,其他圖檔不會自動100%,要另外寫bg-szie:100%*/
+#topbar .icon-fb{background-image: url(../images/icon-fb.svg);}
+#topbar .icon-ig{background-image: url(../images/icon-ig.svg);}
+#topbar .icon-line{background-image: url(../images/icon-line.svg);}
+
+#topbar .icon-fb:hover{background-image: url(../images/icon-fb-hover.svg);}
+#topbar .icon-ig:hover{background-image: url(../images/icon-ig-hover.svg);}
+#topbar .icon-line:hover{background-image: url(../images/icon-line-hover.svg);}
+
+/* 主選單 */
+#topbar .menu{
+    padding: 0 10px;
+    border-radius:999px;;
+    /* 玻璃擬態 */
+    background-color: var(--alpha-w-20);
+    border: 2px solid var(--alpha-w-20);
+}
+#topbar .menu a{
+    margin: 10px;
+    border-bottom: 2px solid transparent;/* 保留hover空間防止晃動 */
+}
+#topbar .menu a:hover{
+    color:#111 ;
+    border-bottom:2px solid #111 ;
+}
+/* 聯絡我們 */
+#content{
+    height: 100vh;
+    background-color: var(--bg-1);
+    
+}

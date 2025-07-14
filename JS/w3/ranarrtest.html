@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -33,18 +33,20 @@
 
         function big() {//2.大 1~49>6 ; 1~49>1
             let sarry2 = [];
+            let s2;
+            let sp;
             while (sarry2.length < 6) {
                 let rd2 = Math.floor(Math.random() * 49) + 1;
+                s2 = Math.floor(Math.random() * 49) + 1;
                 if (!sarry2.includes(rd2)) {
                     sarry2.push(rd2);
                 }
-            }
-            let s2 = Math.floor(Math.random() * 49) + 1;
-            let sp;
-            if (!sarry2.includes(s2)) {
-                sp=s2;
+                if (!sarry2.includes(s2)) {
+                    sp=s2;
+                }
             }
             result.innerHTML = `大樂透號碼: ${sarry2.join("、")}, 特別號: ${sp}`;
+            console.log(s2);
             sarry2.sort(function (a, b) { return a - b; });
             result2.innerHTML = `大樂透號碼(重新排序後): ${sarry2.join("、")}, 特別號: ${sp}`;
         }

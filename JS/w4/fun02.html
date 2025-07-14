@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="name">請輸入姓名</label>
+    <input type="text" id="name">
+    <button onclick="sayHi3(getName())">確定</button>
+    <p id="showData"></p>
+    <script>
+        function sayHi3(userName){
+            let showData=document.getElementById("showData");
+            showData.textContent=`Hi,${userName}`;
+        }
+        function getName(){
+            let name1=document.getElementById("name").value;
+            return name1;
+        }
+    </script>
+</body>
+</html>
