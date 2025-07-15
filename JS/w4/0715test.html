@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function printMany() {
+            let a = 1;
+            while (a <= 100) {
+                console.log(a);
+                a++;
+            }
+        }
+        console.log("第一題")
+        printMany();
+
+        function printEvery3() {
+            let a = 1;
+            while (a <= 88) {
+                console.log(a);
+                a += 3;
+            }
+        }
+        console.log("第二題")
+        printEvery3();
+
+        function stars(c) {
+            for (let cc = 0; cc < c; cc++) {
+                document.write("*");
+            }
+        }
+        console.log("第三題")
+        stars(3);
+
+        function isUpperCase(d) {
+            if (d == "") {
+                return false;
+            } else {
+                return d[0] === d[0].toUpperCase();
+            }
+        }
+        console.log("第四題")
+        console.log(isUpperCase("ABCD")); 		// returns true
+        console.log(isUpperCase("")); 			// returns false
+        console.log(isUpperCase("aBCD"));
+
+        function isAllUpperCase(e) {
+            if (e == "") {
+                return false;
+            } else {
+                return e === e.toUpperCase();
+            }
+        }
+        console.log("第五題")
+        console.log(isAllUpperCase("ABCD")); 			// returns true
+        console.log(isAllUpperCase("")); 				// returns false
+        console.log(isAllUpperCase("ABCDEFGHIJKLm")); 	// returns false
+
+        function position(f) {
+            for(let i=0;i<f.length;i++){
+                if(f[i] === f[i].toUpperCase()){
+                    return [f[i],i]
+                }
+            }
+            return -1;
+        }
+        console.log("第六題")/* 檢查第一個字母大寫的內容與位置，找不到為-1*/
+        console.log(position("abcd")); 	// prints -1
+        console.log(position("AbcD"));		// prints A 0
+        console.log(position("abCD")); 	// prints C 2
+
+        function findSmallCount(g) {
+
+        }
+        console.log("第七題")/* 找出陣列中的值，比第2個參數小的總個數*/
+        // console.log(findSmallCount([1, 2, 3], 2)); 			// returns 1
+        // console.log(findSmallCount([1, 2, 3, 4, 5], 0)); 	// returns 0
+
+        function findSmallerTotal(h) {
+
+        }
+        console.log("第八題")/* 找出陣列中的值，比第2個參數小的總和*/
+        // console.log(findSmallerTotal([1, 2, 3], 3)); 			// returns 3
+        // console.log(findSmallerTotal([1, 2, 3], 1)); 			// returns 0
+        // console.log(findSmallerTotal([3, 2, 5, 8, 7], 999)); 	// returns 25
+        // console.log(findSmallerTotal([3, 2, 5, 8, 7], 0)); 		// returns 0
+
+
+        function findAllSmall(i) {
+
+        }
+        console.log("第九題")/* 找出陣列中的值，比第2個參數小的值保存在新的陣列中*/
+        // console.log(findAllSmall([1, 2, 3], 10)); 		// returns [1, 2, 3]
+        // console.log(findAllSmall([1, 2, 3], 2)); 		// returns [1]
+        // console.log(findAllSmall([1, 3, 5, 4, 2], 4)); 	// returns [1, 3, 2]
+
+
+        function sum(j) {
+            let js = 0;
+            if(j==null){
+                return 0;
+            }else{
+                for (let i = 0; i < j.length; i++) {
+                    js+= j[i];
+                }
+                return js;
+            }
+        }
+        console.log("第十題")/* 加總陣列中的值*/
+        console.log(sum([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 	// returns 55
+        console.log(sum([])); 							// return 0
+        console.log(sum([-10, -20, -30])); 				// return -60
+
+    </script>
+
+</body>
+
+</html>
