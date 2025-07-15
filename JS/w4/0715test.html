@@ -30,9 +30,11 @@
         printEvery3();
 
         function stars(c) {
-            for (let cc = 0; cc < c; cc++) {
-                document.write("*");
+            let cc="";
+            for (let i = 0; i < c; i++) {
+                cc+="*"
             }
+            console.log(cc)
         }
         console.log("第三題")
         stars(3);
