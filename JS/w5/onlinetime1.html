@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="clock">線上時鐘</p>
+    <button type="button" id="btn">停止</button>
+
+    <script>
+        // addEventListener()=>監聽事件的方法
+        var timer;
+        window.addEventListener('load',function(){
+            // setInterval()=>每隔一段時間做指定的事
+            timer=window.setInterval(function(){
+                var clock=document.getElementById('clock');
+                clock.textContent=new Date().toLocaleString();
+            },1000);
+        });
+
+        let btn=document.getElementById('btn');
+        btn.addEventListener('click',function(){
+            window.clearInterval(timer);
+        })
+    </script>
+</body>
+</html>

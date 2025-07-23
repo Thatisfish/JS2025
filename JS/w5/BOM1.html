@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openNewWindow()">open</button>
+    <button onclick="openNewWindow()">close</button>
+
+    <script>
+        let myWin=null;
+        function openNewWindow(){
+            // myWin=window.open();
+            myWin = window.open('new.html', 'myWin', 'left=100,top=100,height=200,width=400');
+
+        }
+
+        function closeNewWindow(){
+            if(myWin){
+                myWin.close();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let add=(...number)=>{
+            let tot=0;
+            for(let n of number){
+                tot+=n;
+            }
+            return tot;
+        }
+        console.log(add(5,3));
+        console.log(add(5,3,8));
+        console.log(add(5,3,8,10));
+        console.log(add(5,3,8,10,100));
+    </script>
+</body>
+</html>

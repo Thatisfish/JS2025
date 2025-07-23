@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var user={
+            name:'aa',
+            age:'21',
+
+            showMsg:function(){
+                console.log(`hi,我是${user.name}!`);
+                console.log(`hi,我是${this.name}!`);
+            }
+        };
+
+
+        console.log(`使用者姓名:${user.name}`)
+        console.log(`使用者名稱:${user.age}`)
+
+        user.showMsg(); 
+
+        delete user.age;
+        console.log(user.age);
+    </script>
+</body>
+</html>

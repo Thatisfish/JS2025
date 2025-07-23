@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="counter">3</p>
+    <button id="btn">計時開始</button>
+    <button id="btn2" style="display: none;">重來</button>
+    <script>
+        let counter=document.getElementById("counter");
+        let initalCounter=parseInt(counter.innerText);
+        let btn=document.getElementById("btn");
+        let btn2=document.getElementById("btn2");
+
+        btn.addEventListener('click',function(){
+            let interval;
+            let curCounter=initalCounter;
+
+            interval=setInterval(()=>{
+                if(curCounter<=0){
+                    counter.innerText="時間到!";
+                    btn.style.display="none";
+                    btn2.style.display="block";
+                    return clearInterval(interval);
+                }
+                curCounter=curCounter-1;
+                counter.innerText=curCounter;
+            },1000)
+        })
+    </script>
+</body>
+</html>

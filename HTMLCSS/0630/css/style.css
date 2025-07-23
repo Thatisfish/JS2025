@@ -17,6 +17,9 @@
     --lesser-4:#8f6d6d;
     /* 透明 */
     --alpha-w-20:rgba(255,255,255,0.2);
+    --alpha-w-40:rgba(255,255,255,0.4);
+
+    --alpha-b-20:rgba(0,0,0,0.2);
     /* 尺寸 */
 }
 
@@ -39,10 +42,13 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video{
     margin: 0;
     padding: 0;
+    font-size: 100%;
 }
 /* 重置字體 */
 body {
-    font-family: sans-serif;
+    /* 需要""的字體 兩個英文單字含空格、中文字體名稱 */
+    font-family:/*英文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+                /*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
     font-size: 100%;
     line-height: 1.5;
 }
@@ -64,6 +70,13 @@ a {
     display: block;/* inline不支援 */
     color: #666 ;
     text-decoration: none;
+    transition: .4s;/* 淡入淡出 不要用在hover */
+}
+
+/* 共用區 */
+/* 區塊標題 */
+.title{
+
 }
 
 /* 頁首區 */
@@ -106,8 +119,21 @@ div.logo{
     padding: 0 10px;
     border-radius:999px;;
     /* 玻璃擬態 */
-    background-color: var(--alpha-w-20);
+    /* 漸層色要用image不能用color */
+    background-image:linear-gradient(to bottom right,   rgba(255,255,255,.1),
+                                                        rgba(255,255,255,.4));
     border: 2px solid var(--alpha-w-20);
+    backdrop-filter: blur(10px);
+
+    /* filter的陰影是針對屬性下的全部內容 */
+    /* filter: drop-shadow(2px 4px 10px rgba(102, 102, 102, 0.20)); */
+
+    /* box-shadow只針對屬性變更 屬性下的內容不會變更 */
+    box-shadow: 2px 4px 10px var(--alpha-b-20),
+                inset -1px -1px 1px var(--alpha-w-40);
+
+    /* text-shadow只針對文字 包含子元素 */
+    /* text-shadow:2px 4px 10px rgba(102, 102, 102, 0.20) ; */
 }
 #topbar .menu a{
     margin: 10px;
@@ -121,5 +147,34 @@ div.logo{
 #content{
     height: 100vh;
     background-color: var(--bg-1);
+    background-image: url(../images/banner_1.jpg);
     
+}
+
+/* 頁尾區 */
+footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background-color: var(--lesser-4);
+    color: var(--light);
+}
+
+footer h2{
+    font-size:1.5rem;
+}
+footer h2 span{
+    font-size: 1rem;
+}
+footer a{
+    color: var(--light);
+}
+footer .sitemap{
+    display: flex;
+}
+footer .sitemap>li{
+    margin: 0 10px;
+}
+footer small{
+    align-self: flex-end;
 }
