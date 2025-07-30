@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+:root{
+    --nav:#EB6455;
+    --light:#f1f1f1;
+}
+
+/* 重置所有標籤的樣式 */
+*{
+    box-sizing: border-box;/* 不累加內距及邊框 */
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video{
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+}
+/* 重置字體 */
+body {
+    font-family:/*英文*/ -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial,
+                /*中文*/ "蘋方-繁", "PingFang TC", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    height: 100vh; /* 滿版畫面 */
+}
+/* 重置標題 */
+h1,h2,h3,h4,h5,h6 {
+    font-weight: normal;
+}
+/* 重置列表 */
+ul,ol {
+    list-style: none;
+}
+/* 重置圖片 */
+img {
+    display: block;
+    width: 100%;
+}
+/* 重置連接 */
+a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+}
+
+/* 頁首區 */
+
+.navigation {
+    background-color: rgba(255, 255, 255, 0); /* 完全透明 */
+    position: fixed; /* 固定在上方 */
+    top: 0;
+    width: 100%;
+    z-index: 999; /* 確保蓋在最上層 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 80px;
+}
+
+#topbar ul{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.logo img {
+    height: 100px;
+    /* 可依需求調整 */
+}
+
+.menu {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 100px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+
+
+.menu li a{
+    text-decoration: none;
+    color:var(--light);
+}
+
+.search-bar {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--light);
+    color:var(--light);
+    font-size: 16px;
+    padding: 8px 10px;
+    outline: none;
+    width: 200px;
+}
+.search-bar::placeholder {
+  color:var(--light); /* ← 這裡改 placeholder 顏色 */
+  opacity: 1;     /* ← 讓顏色完全顯示 */
+}
+
+#topbar .icon a{
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+#topbar .icon-search{background-image: url(../IMAGES/icon-search.svg);}
+#topbar .icon-Shopping_cart{background-image: url(../IMAGES/icon-Shopping_cart.svg);}
+#topbar .icon-login{background-image: url(../IMAGES/icon-login.svg);}
+
+/* 主要頁面 */
+section{
+    height: 100vh;
+    background-color: var(--nav);
+    background-size: cover;
+    background-repeat: no-repeat;   /* 防止重複平鋪 */
+    background-position: center;    /* 讓圖片置中對齊 */
+}
+
+
+/* 頁尾 */
+footer {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    justify-content: space-between;
+    height: 230px;
+    background-color: var(--nav);
+    color: var(--light);
+    border-top: solid 1px rgba(63, 63, 63, 0.7);
+}
+nav{
+    padding: 20px 30px;
+}
+.sitemap-f{
+    font-size: 20px;
+    font-weight: bold;
+}
+.sitemap li{
+    margin: 5px 0;
+}
+footer a{
+    color: var(--light);
+}
+footer .sitemap{
+    display: flex;
+    gap: 20px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+footer .sitemap>li{
+    margin: 0 80px;
+    text-align: center;
+}
+small{
+    margin-top: auto;
+    background-color: #000;
+    display: block;             /* 讓它變成整段（占滿一行） */
+	width: 100%;                /* 延伸整個 footer 寬度 */
+	text-align: center;         /* 文字置中 */
+	padding: 10px 0;            /* 上下內距 */
+}
+

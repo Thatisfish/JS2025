@@ -58,16 +58,26 @@ a {
 /* 頁首區 */
 
 .navigation {
-    background-color: rgba(255, 255, 255, 0); /* 完全透明 */
-    position: fixed; /* 固定在上方 */
-    top: 0;
-    width: 100%;
-    z-index: 999; /* 確保蓋在最上層 */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 20px;
-    height: 80px;
+	background-color: rgba(255, 255, 255, 0); /* 完全透明 */
+	position: fixed; /* 固定在上方 */
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+	height: 80px;
+}
+
+#topbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 85px; /* 如果你 logo 是 100px 就這樣設 */
+	background-color: rgba(255, 255, 255, 0);
+	z-index: 999;
 }
 
 #topbar ul{
@@ -76,7 +86,7 @@ a {
 }
 
 .logo img {
-    height: 100px;
+    height: 85px;
     /* 可依需求調整 */
 }
 
@@ -113,7 +123,7 @@ a {
   opacity: 1;     /* ← 讓顏色完全顯示 */
 }
 
-#topbar .icon a{
+#topbar .nav-icon a{
     width: 35px;
     height: 35px;
     margin: 5px;
@@ -124,13 +134,50 @@ a {
 #topbar .icon-login{background-image: url(../IMAGES/icon-login.svg);}
 
 /* 主要頁面 */
-section{
-    height: 100vh;
-    background-color: var(--nav);
-    background-size: cover;
-    background-repeat: no-repeat;   /* 防止重複平鋪 */
-    background-position: center;    /* 讓圖片置中對齊 */
+.hero-section {
+	position: relative;
+	background-color: #e76257;
+	width: 100%;
+	height: 1000px;
+	overflow: hidden;
 }
+
+/* 上方標語圖檔 */
+.hero-text {
+	position: absolute;
+	top: 50px;
+	left: 175px;
+	transform: none;
+	width: 90%;
+	max-width: 600px;
+	z-index: 10;
+}
+
+.game-letters {
+	position: absolute;
+	top: 140px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	gap: 20px;
+	z-index: 5;
+}
+
+.game-letters img {
+	width: 300px;
+	height: auto;
+}
+
+.hero-icon {
+	position: absolute;
+	width: 30px;
+	z-index: 20;
+}
+
+/* 各 icon 位置 */
+.icon-star { top: 50px; right: 80px; }
+.icon-cart { bottom: 40px; left: 100px; }
+
 
 
 /* 頁尾 */
