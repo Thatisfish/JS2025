@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="url">請選擇網站</label>
+        <select name="" id="url">
+            <option value="">請選擇</option>
+            <option value="https://www.google.com/?hl=zh_TW">google</option>
+            <option value="https://www.momoshop.com.tw/main/Main.jsp">momo</option>
+            <option value="https://shopee.tw/">蝦皮</option>
+        </select>
+
+        <script>
+            let url=document.querySelector('#url');
+            
+            url.addEventListener('change',()=>{
+                if(url.value.length>0){
+                    let neWin=open();
+                    neWin.location.href=url.value;
+                }
+            })
+        </script>
+    </form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form id="acc">
+        <label for="uid"><span>*</span>帳號</label>
+        <input type="text" id="uid"><br>
+        
+        <label for="upw"><span>*</span>密碼</label>
+        <input type="text" id="upw"><br>
+
+        <span id="msg"></span><br><br>
+        <input type="submit" value="送出">
+        <input type="reset" value="重新填寫">
+    </form>
+    
+    <script>
+        let uid=document.querySelector("#uid");
+        let upw=document.querySelector("#upw");
+        let msg=document.querySelector("#msg");
+
+        acc.addEventListener('submit',(e)=>{
+            if(uid.value.length<=0&&upw.value.length<=0){
+                msg.innerHTML+="請輸入帳號<br>"
+                msg.innerHTML+="請輸入密碼"
+            }else if(uid.value.length<=0){
+                msg.textContent="請輸入帳號"
+            }else if(upw.value.length<=0){
+                msg.textContent="請輸入密碼"
+            }
+            e.preventDefault();
+        })
+    </script>
+
+</body>
+</html>

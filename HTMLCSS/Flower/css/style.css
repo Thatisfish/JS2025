@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+@font-face {
+    font-family: Rosaline;
+    src: url(../webfonts/Rosaline.otf);
+}
+
 /* css變數 */
 :root{
     /* 灰階 */
@@ -76,8 +82,22 @@ a {
 /* 共用區 */
 /* 區塊標題 */
 .title{
-
+    margin-bottom: 30px;
 }
+.title *{
+    text-align: center;
+    font-weight: 700;
+}
+.title h2{
+    font-family: Rosaline,serif;
+    font-size: 2rem;
+    border-bottom: solid 3px var(--deep);
+}
+.title h3{
+    font-family: "LXGW WenKai TC", cursive;
+    font-size: 1.2rem;
+}
+
 
 /* 頁首區 */
 #topbar{
@@ -138,6 +158,9 @@ div.logo{
 #topbar .menu a{
     margin: 10px;
     border-bottom: 2px solid transparent;/* 保留hover空間防止晃動 */
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 700;
+    font-style: normal;
 }
 #topbar .menu a:hover{
     color:#111 ;
@@ -145,11 +168,35 @@ div.logo{
 }
 /* 聯絡我們 */
 #content{
+    display: flex;
+    flex-direction: column; /* 主軸:垂直 */
+    justify-content: center;/* 主軸(垂直)對齊:置中 */
+    align-items: center;    /* 副軸(水平)對齊:置中 */
     height: 100vh;
     background-color: var(--bg-1);
-    background-image: url(../images/banner_1.jpg);
-    
+    /* background-image: url(../images/banner_1.jpg); */
 }
+#content .content{
+    display: flex;
+    width: 80%;
+
+}
+#content .content > *{
+    flex: 1;
+    margin: 0 15px;
+
+}
+#content .content h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+#content address{
+    font-size: .8rem;
+    font-style: normal;
+    margin: 20px 0;
+}
+
+
 
 /* 頁尾區 */
 footer {

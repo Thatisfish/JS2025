@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>主題發想</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "PingFang TC", sans-serif;
+      background: linear-gradient(135deg, #C40000, #8B0000);
+      color: #fff;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 24px;
+    }
+
+    .header {
+      text-align: right;
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 48px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      padding-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px 24px 20px 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 280px;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .number-circle {
+      background-color: #fff;
+      color: #C40000;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      font-size: 1.1rem;
+    }
+
+    .card-title {
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-left: 6px solid #fff;
+      padding-left: 12px;
+    }
+
+    .card ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .card li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">主題發想</div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-header">
+          <div class="number-circle">1</div>
+          <div class="card-title">一、使用者痛點</div>
+        </div>
+        <ul>
+          <li>資訊分散、分類不清：玩家需跳轉多平台比價，容易錯過想要的商品。</li>
+          <li>高手續費／高風險、無評價機制：現有平台手續費偏高，且無盤點與評價，交易不透明。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="number-circle">2</div>
+          <div class="card-title">二、市場機會</div>
+        </div>
+        <ul>
+          <li>專屬遊戲二手市集：整合全台二手遊戲交易入口，每月千筆成交無單一專門平台。</li>
+          <li>成長玩家社群經濟：台灣遊戲市場破 600 億台幣，全球二手交易年成長率 12.6 ％，台灣可持續提升。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="number-circle">3</div>
+          <div class="card-title">三、專案目標</div>
+        </div>
+        <ul>
+          <li>實現透明且友善的交易費用。</li>
+          <li>建立多層級信任機制。</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

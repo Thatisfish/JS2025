@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        科目：
+        <input type="checkbox" name="subject" value="html">HTML
+        <input type="checkbox" name="subject" value="css">CSS
+        <input type="checkbox" name="subject" value="js">JS
+        <input type="button" id="btn" value="送出">
+    </form>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector('#result');
+        let btn = document.querySelector('#btn');
+        btn.addEventListener('click', function () {
+            let arr = [];
+            let subject = document.getElementsByName("subject");
+            for (let i = 0; i < subject.length; i++) {
+                if (subject[i].checked) {
+                    arr.push(subject[i].value);
+                }
+            }
+            let str = "";
+            str += "<ul>";
+            arr.forEach(op => {
+                if (op === "css") {
+                    str += "<li style='color:red'>";
+                } else {
+                    str += "<li>";
+                }
+                str += op;
+                str += "</li>";
+            });
+            str += "</ul>";
+            result.innerHTML = str;
+        })
+    </script>
+</body>
+
+</html>

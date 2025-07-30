@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <marquee 
+        width="300" style="background-color: yellow;"
+        onmouseover="stop()" onmouseleave="start()">
+        跑馬燈文字
+    </marquee> -->
+
+    <!-- 事件處理 -->
+    
+    <!-- 標籤綁定 -->
+    <button type="button" onclick="alert('hi')">顯示訊息</button>
+    <button type="button" onclick="sayHi('hi')">顯示訊息2</button>
+    <script>
+        function sayHi(str){
+            alert(str);
+        }
+    </script>
+
+    <!-- 監聽事件 -->
+    <button type="button" class="btn1">顯示訊息3</button>
+    <script>
+        let btn1
+    </script>
+
+
+</body>
+</html>
