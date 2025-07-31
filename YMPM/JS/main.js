@@ -5,6 +5,6 @@ window, addEventListener('scroll', () => {
     if (window.pageYOffset != 0) {
         navigation.style.backgroundColor = "#000" 
     } else{
-        navigation.style.backgroundColor = "rgba(255, 255, 255, 0)"
+        navigation.style.backgroundColor = "#e76257"
     }
 })
