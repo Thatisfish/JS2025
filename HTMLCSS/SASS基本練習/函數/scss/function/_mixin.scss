@@ -1,0 +1,10 @@
+@use "../variables/" as *;
+
+@mixin glassmorphism{
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, .1),
+            rgba(255, 255, 255, .4));
+    border: 2px solid $alpha-40;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 4px 10px rgba($Black,$alpha-20),
+        inset -1px -1px 1px rgba($White,$alpha-40);
+}

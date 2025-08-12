@@ -1,0 +1,44 @@
+@charset "UTF-8";
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連接 */
+a {
+  display: block;
+  /* inline不支援 */
+  color: #666;
+  text-decoration: none;
+  transition: 0.4s;
+  /* 淡入淡出 不要用在hover */
+}
+
+#contact, #news, .list-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width:820px) {
+  #topbar .navigation {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    border: 2px solid 0.4;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 4px 10px rgba(10, 10, 10, 0.2), inset -1px -1px 1px rgba(247, 249, 251, 0.4);
+  }
+}
+@media (max-width:821px) {
+  #topbar .menu {
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+    border: 2px solid 0.4;
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 4px 10px rgba(10, 10, 10, 0.2), inset -1px -1px 1px rgba(247, 249, 251, 0.4);
+  }
+}

@@ -1,0 +1,31 @@
+@charset "UTF-8";
+ul,
+ol {
+  list-style: none;
+}
+
+/* 重置圖片 */
+img {
+  display: block;
+  width: 100%;
+}
+
+/* 重置連接 */
+a {
+  display: block;
+  /* inline不支援 */
+  color: #666;
+  text-decoration: none;
+  transition: 0.4s;
+  /* 淡入淡出 不要用在hover */
+}
+
+.title {
+  text-align: center;
+}
+.title h2 {
+  font-family: Rosaline, serif;
+}
+.title h3 {
+  font-family: "LXGW WenKai TC", cursive;
+}

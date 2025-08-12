@@ -1,0 +1,29 @@
+@use "reset";
+@use "variables" as *;
+@use "function" as *;
+
+#topbar {
+    .navigation {
+        @media ($mediaMd) {
+            @include glassmorphism;
+        }
+    }
+
+    .menu {
+        @media ($mediaLg) {
+            @include glassmorphism;
+        }
+    }
+}
+
+#contact {
+    @extend %flex-center;
+}
+
+#news {
+    @extend %flex-center;
+}
+
+.list-box {
+    @extend %flex-center;
+}
