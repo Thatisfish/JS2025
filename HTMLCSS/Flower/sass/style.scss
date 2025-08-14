@@ -1,0 +1,46 @@
+@use "reset";
+@use "variables" as *;
+@use "function" as *;
+@use "./keyrames";
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+@font-face {
+    font-family: Rosaline;
+    src: url(../webfonts/Rosaline.otf);
+}
+/* 共用區 */
+.title{
+    margin: $space-ex 0 $spacin-x-xl;
+
+    *{
+        text-align: center;
+        font-weight: 700;
+    }
+
+    h2{
+        font-family: $family-en;
+        font-size: $f-f-xxxl;
+        @include border-b(3px,$Charcoal);
+    }
+}
+.icon{
+    a{
+        width: 35px;
+        height: 35px;
+        margin: $space-xxs;
+    }
+}
+
+#contactform{
+    .btn-animat{
+        @extend %btn-animat;
+    }
+}
+/* 頁首區 */
+#topbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $w-100; 
+    z-index: $z-ex;
+    padding: $space-xs $space-xl;
+}

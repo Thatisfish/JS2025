@@ -1,0 +1,12 @@
+@use "../variables/" as *;
+
+@mixin border-b($width,$color){
+    border-bottom: solid $width $color;
+}
+@mixin bordered($width:1px,$color:$lesser-4){
+    border: solid $width $color;
+}
+
+@mixin amt($name,$speed:.75s){
+    animation: $name $speed both;
+}
