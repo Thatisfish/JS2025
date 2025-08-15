@@ -1,12 +1,22 @@
 @use "../variables/" as *;
 
-@mixin border-b($width,$color){
+@mixin border-b ($width:3px, $color:$Charcoal) {
     border-bottom: solid $width $color;
 }
-@mixin bordered($width:1px,$color:$lesser-4){
+
+@mixin bordered ($width:1px, $color:$lesser-3) {
     border: solid $width $color;
 }
-
-@mixin amt($name,$speed:.75s){
+@mixin amt ($name ,$speed:.75s){
     animation: $name $speed both;
+}
+
+@mixin glassmorphism {
+    /* 玻璃擬態*/
+    background-image: linear-gradient( to bottom right ,$alpha-w-40 ,$alpha-w-70 );
+    @include bordered ( $width:2px,$color:$alpha-w-40);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 2px 2px 5px $alpha-b-20,
+        inset -1px -1px 1px $alpha-w-40;
 }

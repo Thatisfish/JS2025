@@ -1,92 +1,98 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 
 <head>
     <meta charset="UTF-8">
-    <title>貼紙定位練習</title>
-    <style>
-        body {
-            background: #f9f9f9;
-            font-family: sans-serif;
-            padding: 40px;
-        }
-
-        .wrapper {
-            position: relative;
-            width: 600px;
-            height: 300px;
-            margin: auto;
-            border: 3px dashed #aaa;
-            background: #fff7f5;
-        }
-
-        .box {
-            position: absolute;
-            top: 60px;
-            left: 100px;
-            width: 120px;
-            height: 100px;
-            background-color: #EF382F;
-            color: white;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            cursor: grab;
-            user-select: none;
-            transition: box-shadow 0.2s;
-        }
-
-        .box:active {
-            cursor: grabbing;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <link rel="icon" href="./favicon.ico">
+    <title>Document</title>
 </head>
 
 <body>
-    <h2 style="text-align:center;">🎯 貼紙定位練習</h2>
-    <div class="wrapper">
-        <div class="box" id="sticker">我是貼紙</div>
-    </div>
+    <header id="topbar">
+        <div class="logo">
+            <img src="./images/logo_b.svg" alt="logo">
+        </div>
+        <nav class="navigation">
+            <ul class="icon"><!--icon-->
+                <li><a class="icon-fb" href="#"></a></li>
+                <li><a class="icon-ig" href="#"></a></li>
+                <li><a class="icon-line" href="#"></a></li>
+            </ul>
+            <ul class="menu"><!--menu-->
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="">NEWS</a></li>
+                <li><a href="">SERVICE</a></li>
+                <li><a href="">VIDEO</a></li>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="banner">
+            <header class="title"></header>
+        </section>
+        <section id="news">
+            <header class="title">
+                <h2>NEWS</h2>
+                <h3>最新消息</h3>
+            </header>
+        </section>
+        <section id="service">
+            <header class="title">
+                <h2>SERVICE</h2>
+                <h3>服務項目</h3>
+            </header>
+        </section>
+        <section id="video">
+            <header class="title">
+                <h2>VIDEO</h2>
+                <h3>相關影片</h3>
+            </header>
+        </section>
+        <section id="about">
+            <header class="title">
+                <h2>ABOUT</h2>
+                <h3>關於我們</h3>
+            </header>
+        </section>
+    </main>
 
-    <script>
-        const box = document.getElementById('sticker');
-        let offsetX, offsetY;
-        let isDragging = false;
 
-        box.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            offsetX = e.offsetX;
-            offsetY = e.offsetY;
-        });
-
-        document.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const wrapper = document.querySelector('.wrapper');
-                const wrapperRect = wrapper.getBoundingClientRect();
-                const boxWidth = box.offsetWidth;
-                const boxHeight = box.offsetHeight;
-
-                let x = e.clientX - wrapperRect.left - offsetX;
-                let y = e.clientY - wrapperRect.top - offsetY;
-
-                // 限制 x 在 0 到 (框寬 - 貼紙寬)
-                x = Math.max(0, Math.min(x, wrapper.offsetWidth - boxWidth));
-                // 限制 y 在 0 到 (框高 - 貼紙高)
-                y = Math.max(0, Math.min(y, wrapper.offsetHeight - boxHeight));
-
-                box.style.left = x + 'px';
-                box.style.top = y + 'px';
-            }
-        });
-
-    </script>
+    <footer>
+        <h2>芮塔花室 <span>Rita Flower</span></h2>
+        <nav>
+            <ul class="sitemap">
+                <li><a href="./index.html">HOME</a></li>
+                <li>
+                    <a href="#">NEWS</a>
+                    <!-- 子選單 -->
+                    <ul>
+                        <li><a href="#">優惠活動</a></li>
+                        <li><a href="#">媒體報導</a></li>
+                        <li><a href="#">商店公告</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">SERVICE</a>
+                    <!-- 子選單 -->
+                    <ul>
+                        <li><a href="#">服務項目1</a></li>
+                        <li><a href="#">服務項目2</a></li>
+                        <li><a href="#">服務項目3</a></li>
+                        <li><a href="#">服務項目4</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">VIDEO</a></li>
+                <li><a href="./contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+        <small>Copyright &copy; 芮塔花室 Rita Flower.</small>
+    </footer>
 </body>
 
 </html>

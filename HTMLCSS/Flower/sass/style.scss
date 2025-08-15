@@ -1,46 +1,242 @@
-@use "reset";
-@use "variables" as *;
-@use "function" as *;
+@use "./reset"; //@use 規則必須在任何其他規則之前寫入
 @use "./keyrames";
+@use "./variables" as *;
+@use "./function" as *;
 @import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+
+@font-face {
+    font-family: Avenue;
+    src: url(../webfonts/Avenue\ de\ Madison.ttf);
+}
+
 @font-face {
     font-family: Rosaline;
     src: url(../webfonts/Rosaline.otf);
 }
-/* 共用區 */
-.title{
-    margin: $space-ex 0 $spacin-x-xl;
 
-    *{
+/*---------- 共用區 ----------*/
+// 區塊標題
+.title {
+    margin: $space-ex 0 $space-xl;
+
+    * {
+        //.title裡面的所有子孫
         text-align: center;
-        font-weight: 700;
     }
 
-    h2{
-        font-family: $family-en;
-        font-size: $f-f-xxxl;
-        @include border-b(3px,$Charcoal);
+    h2 {
+        font-family: $family-dispaly;
+        font-size: $f-s-xxxl;
+        @include border-b;
+        font-weight: $f-w-b;
+    }
+
+    h3 {
+        font-family: $family-tc;
+        font-size: $f-s-lg;
     }
 }
-.icon{
-    a{
+
+.logo {
+    width: 55px;
+}
+
+.icon {
+    a {
         width: 35px;
         height: 35px;
         margin: $space-xxs;
     }
 }
 
-#contactform{
-    .btn-animat{
-        @extend %btn-animat;
+//迴圈不用調用，直接編譯語法(不可寫入function)
+@each $social in fb, ig, line {
+    .icon-#{$social} {
+        background-image: url(../images/icon-#{$social}.svg);
+
+        &:hover {
+            background-image: url(../images/icon-#{$social}-hover.svg);
+        }
     }
 }
-/* 頁首區 */
-#topbar{
+
+/*---------- 頁首區 ----------*/
+#topbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: $w-100; 
+    width: $w-100;
     z-index: $z-ex;
+    @extend %flex-between;
     padding: $space-xs $space-xl;
+
+    ul {
+        @extend %flex-end;
+    }
+
+    .menu {
+        padding: $space-x-xs;
+        border-radius: $radius-ex;
+        @include glassmorphism;
+
+        a {
+            font-family: $family-en;
+            font-weight: $f-w-b;
+            margin: $space-xs;
+            @include border-b ($width: 2px, $color: transparent);
+
+            &:hover {
+                color: $Black;
+                @include border-b ($width: 2px, $color: $Black);
+            }
+        }
+    }
+}
+
+
+
+#contactform {
+    .btn-animat {
+        @extend %btn-animat;
+    }
+}
+
+/* 聯絡表單 */
+#contact {
+    position: relative;
+    overflow: hidden;
+    @extend %flex-center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: $bg-1;
+
+    @media($mediaMd) {
+        height: auto;
+    }
+
+    .content {
+        display: flex;
+        width: $w-80;
+
+        @media ($mediaSm) {
+            flex-direction: column;
+        }
+
+        >* {
+            flex: 1;
+            margin: $space-x-xl;
+        }
+
+        h1 {
+            font-size: $f-s-xl;
+            font-weight: $f-w-b;
+        }
+
+        address {
+            font-size: $f-s-sm;
+            font-style: normal;
+            margin: $space-y-md;
+        }
+
+        iframe {
+            width: $w-100;
+            height: 300px;
+        }
+
+        #contactform {
+            >* {
+                display: block;
+                width: $w-100;
+            }
+
+            label {
+                margin: $space-label;
+            }
+
+            .btn-animat {
+                @extend %btn-animat;
+            }
+        }
+    }
+
+    figure {
+        position: absolute;
+        width: 250px;
+
+        @media($mediaMd) {
+            width: 200px;
+        }
+
+        @media ($mediaSm) {
+            display: none;
+        }
+    }
+
+    .flower1 {
+        left: 0;
+        bottom: -50px;
+    }
+
+    .flower2 {
+        right: 0;
+        top: 100px;
+        transform: rotate(-25deg);
+    }
+}
+
+/*------------------------- 頁尾區 -------------------------*/
+footer {
+    @extend %flex-between;
+    padding: $space-md $space-xl;
+    background-color: $lesser-4;
+    color: $Light;
+
+    @media($mediaLg) {
+        flex-direction: column;
+    }
+
+    h2 {
+        font-size: $f-s-xl;
+
+        span {
+            font-size: $f-s-md;
+        }
+    }
+
+    .sitemap {
+        display: flex;
+
+        @media($mediaMd) {
+            margin-top: $space-lg;
+        }
+
+        @media($mediaSm) {
+            flex-direction: column;
+
+            ul {
+                padding-left: $space-md;
+
+                li {
+                    padding: $space-y-xs;
+                }
+            }
+        }
+
+        >li {
+            margin: $space-x-xs;
+        }
+    }
+
+    a {
+        color: $Light;
+    }
+
+    small {
+        align-self: flex-end;
+
+        @media($mediaSm) {
+            align-self: flex-start;
+            margin-top: $space-xl;
+        }
+    }
 }
