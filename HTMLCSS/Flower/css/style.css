@@ -171,7 +171,7 @@ a {
   }
 }
 /* keyframes end*/
-#contact, #contactform .btn-animat, #contact .content #contactform .btn-animat {
+#index section, #contact, #contactform .btn-animat, #contact .content #contactform .btn-animat {
   display: flex !important;
   justify-content: center;
   align-items: center;
@@ -205,6 +205,18 @@ a {
   animation: myStorm 0.75s both;
 }
 
+#news .text-box p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+#news figure img {
+  object-fit: cover;
+  height: 100%;
+}
+
 @font-face {
   font-family: Avenue;
   src: url(../webfonts/Avenue\ de\ Madison.ttf);
@@ -225,6 +237,27 @@ a {
   font-size: 2rem;
   border-bottom: solid 3px #393a3a;
   font-weight: 700;
+  position: relative;
+}
+.title h2::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -10px;
+  background-color: #8f6b6d;
+  width: 15px;
+  height: 15px;
+  border-radius: 99px;
+}
+.title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: -5px;
+  background-color: #8f6b6d;
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
 }
 .title h3 {
   font-family: "LXGW WenKai TC", cursive;
@@ -262,6 +295,16 @@ a {
   background-image: url(../images/icon-line-hover.svg);
 }
 
+.more {
+  width: 100px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #8f6b6d;
+  margin-top: 25px;
+  color: #f2f7fa;
+  border-radius: 99px;
+}
+
 /*---------- 頁首區 ----------*/
 #topbar {
   position: fixed;
@@ -292,6 +335,63 @@ a {
   border-bottom: solid 2px #0a0a0a;
 }
 
+/* 主要內容區 */
+#index section {
+  flex-direction: column;
+  height: 100vh;
+}
+
+.list-box {
+  display: flex;
+  gap: 30px;
+  width: 80%;
+  max-width: 1100px;
+}
+.list-box .item {
+  flex: 1;
+  border: solid 1px #cdaaab;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* 最新消息 */
+#news {
+  background-color: #f2edf0;
+}
+#news figure {
+  height: 30vh;
+}
+#news .text-box {
+  padding: 20px;
+}
+#news .text-box h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#news .text-box p {
+  -webkit-line-clamp: 5;
+}
+
+#service .item {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+}
+#service .item:nth-child(1) {
+  background-image: url(../images/pt_svc1.jpg);
+}
+#service .item:nth-child(2) {
+  background-image: url(../images/pt_svc2.jpg);
+}
+#service .item:nth-child(3) {
+  background-image: url(../images/pt_svc3.jpg);
+}
+#service .item:nth-child(4) {
+  background-image: url(../images/pt_svc4.jpg);
+}
+
+/* 聯絡我們 */
 /* 聯絡表單 */
 #contact {
   position: relative;

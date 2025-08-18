@@ -37,6 +37,17 @@
         }
     }
 }
+%multiple-lines{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+%img-cover{
+    object-fit: cover;
+    height: 100%;
+    // width: 100%;
+}
 
 %input-style{
     @include bordered;
