@@ -12,9 +12,16 @@
     display: flex;
     justify-content: space-between;
 }
+
 %flex-end {
     display: flex;
     justify-content: flex-end;
+}
+
+%single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 %btn-animat {
@@ -37,30 +44,38 @@
         }
     }
 }
-%multiple-lines{
+
+%list-title {
+    font-size: $f-s-lg;
+    font-weight: $f-w-m;
+    margin-bottom: $space-xs;
+}
+
+%multiple-lines {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
-%img-cover{
+
+%img-cover {
     object-fit: cover;
     height: 100%;
-    // width: 100%;
+    width: 100%;
 }
 
-%input-style{
+%input-style {
     @include bordered;
     padding: $space-xs;
     border-radius: $space-xxs;
     color: var(--lesser-4);
     font-weight: $f-w-m;
 
-    &:focus{
+    &:focus {
         outline: 2px solid $lesser-3;
     }
 
-    &::placeholder{
+    &::placeholder {
         color: $lesser-3;
         font-size: $f-s-xs;
         font-weight: $f-w-r;

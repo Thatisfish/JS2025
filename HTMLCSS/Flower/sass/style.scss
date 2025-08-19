@@ -134,6 +134,12 @@
         @extend %flex-center;
         flex-direction: column;
         height: 100vh;
+
+        @media($mediaMd) {
+            &#video {
+                height: auto;
+            }
+        }
     }
 }
 
@@ -141,7 +147,7 @@
     display: flex;
     gap: $space-xl;
     width: $w-80;
-    max-width: 1100px;
+    max-width: 1250px;
 
     .item {
         flex: 1;
@@ -151,55 +157,155 @@
     }
 }
 
-/* 最新消息 */
+// 最新消息
 #news {
     background-color: $bg-1;
 
-    figure {
-        height: 30vh;
-
-        img {
-            @extend %img-cover;
-        }
-    }
-
-    .text-box {
-        padding: $space-md;
-
-        h2 {
-            font-size: $space-md;
-            font-weight: $f-w-m;
-            margin-bottom: $space-xs;
+    article {
+        @media ($mediaMd) {
+            &:last-child {
+                display: none;
+            }
         }
 
-        p {
-            @extend %multiple-lines;
-            -webkit-line-clamp: 5;
+        @media ($mediaSm) {
+            &:nth-child(2) {
+                display: none;
+            }
+        }
+
+        a {
+            &:hover {
+                .text-box {
+                    background-color: $Light;
+                }
+
+                figure {
+                    filter: brightness(70%);
+                }
+            }
+
+            figure {
+                height: 30vh;
+                transition: $speed-fast;
+
+                img {
+                    @extend %img-cover;
+                }
+            }
+
+            .text-box {
+                padding: $space-md;
+                // background-color: transparent;
+                transition: $speed-fast;
+
+                h2 {
+                    @extend %list-title;
+                }
+
+                p {
+                    @extend %multiple-lines;
+                    -webkit-line-clamp: 5;
+                }
+            }
         }
     }
 }
 
 // 服務項目
 #service {
-    .item {
-        height: 50vh;
-        background-size:cover;
-        background-position:center;
-        &:nth-child(1) {
-            background-image: url(../images/pt_svc1.jpg)
+    background-color: $bg-2;
+
+    .list-box {
+        @media ($mediaMd) {
+            flex-direction: column;
+            height: 70vh;
         }
 
-        &:nth-child(2) {
-            background-image: url(../images/pt_svc2.jpg)
-        }
+        .item {
+            display: flex;
+            align-items: flex-end;
+            height: 50vh;
+            background-size: cover;
+            background-position: center;
 
-        &:nth-child(3) {
-            background-image: url(../images/pt_svc3.jpg)
-        }
+            @media ($mediaMd) {
+                &:nth-child(n+3) {
+                    display: none;
+                }
+            }
 
-        &:nth-child(4) {
-            background-image: url(../images/pt_svc4.jpg)
+            @media ($mediaSm) {
+                &:nth-child(n+2) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(1) {
+                background-image: url(../images/pt_svc1.jpg)
+            }
+
+            &:nth-child(2) {
+                background-image: url(../images/pt_svc2.jpg)
+            }
+
+            &:nth-child(3) {
+                background-image: url(../images/pt_svc3.jpg)
+            }
+
+            &:nth-child(4) {
+                background-image: url(../images/pt_svc4.jpg)
+            }
+
+            a {
+                width: 100%;
+                background-color: $alpha-b-60;
+                color: $Light;
+                padding: $space-md;
+
+                h2 {
+                    @extend %list-title;
+                }
+
+                p {
+                    @extend %single-line;
+                }
+
+                &:hover {
+                    color: $Black;
+                    background-color: $alpha-w-70;
+                }
+            }
         }
+    }
+}
+
+// 相關影片
+#video {
+    background-image: url(../images/bg_contact.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    div {
+        @extend %flex-center;
+        height: 60vh;
+
+        video {
+            height: 100%;
+        }
+    }
+}
+
+// 關於我們
+#about {
+    position: relative;
+
+    video {
+        position: absolute;
+        @extend %img-cover;
+        mix-blend-mode: overlay;
+        // filter: brightness(70%)
     }
 }
 
