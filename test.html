@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-Hant">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>中藥文化館｜漸層過渡示範</title>
+		<style>
+			:root{
+				--brand-brown:#5A4632; /* 深咖啡棕（字色） */
+				--brand-sand:#D8C9A7;  /* 米駝（邊框與聚焦外暈） */
+				--bg:#F8F5F0;          /* 暖米白（頁面底色） */
+			}
+
+			*{box-sizing:border-box}
+			body{
+				margin:0;
+				font-family:"Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+				background:var(--bg);
+				color:var(--brand-brown);
+			}
+
+			/* 主要展示區：兩張圖以遮罩（mask）作中間漸層過渡 */
+			.hero{
+				position:relative;
+				height:70vh;
+				min-height:420px;
+				overflow:hidden;
+				border:6px solid var(--brand-sand);
+				border-radius:12px;
+				background:var(--bg);
+			}
+			.hero::before,
+			.hero::after{
+				content:"";
+				position:absolute;
+				inset:0;
+				background-size:cover;
+				background-position:center;
+				transition:transform 400ms ease, filter 400ms ease;
+			}
+			/* 左側：本草藥閣（藥材） */
+			.hero::before{
+				background-image:url("https://images.unsplash.com/photo-1604908812196-2db279b1091b?auto=format&fit=crop&w=1600&q=80");
+				/* 向右邊緣做淡出 */
+				-webkit-mask-image:linear-gradient(to right, black 45%, transparent 65%);
+				mask-image:linear-gradient(to right, black 45%, transparent 65%);
+			}
+			/* 右側：養生食光（藥膳） */
+			.hero::after{
+				background-image:url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80");
+				/* 向左邊緣做淡出 */
+				-webkit-mask-image:linear-gradient(to left, black 45%, transparent 65%);
+				mask-image:linear-gradient(to left, black 45%, transparent 65%);
+			}
+			/* 統一色調的暖色罩層（不影響點擊） */
+			.tone{
+				position:absolute; inset:0;
+				background:linear-gradient(to right, rgba(0,0,0,.15), rgba(0,0,0,.10));
+				pointer-events:none;
+			}
+
+			/* 左右兩側的文案卡片 */
+			.panel{
+				position:absolute;
+				top:50%;
+				transform:translateY(-50%);
+				max-width:44%;
+				padding:24px 28px;
+				background:rgba(248,245,240,.45);
+				backdrop-filter:blur(2px);
+				border:1px solid rgba(216,201,167,.6);
+				border-radius:12px;
+				box-shadow:0 6px 24px rgba(0,0,0,.15);
+			}
+			.panel.left{left:5%; text-align:left}
+			.panel.right{right:5%; text-align:right}
+			.panel h2{
+				margin:0 0 8px;
+				font-size:clamp(28px, 3.2vw, 44px);
+				color:#FFFFFF;
+				text-shadow:1px 2px 6px rgba(0,0,0,.5);
+			}
+			.panel p{
+				margin:0 0 16px;
+				color:#FFFFFF;
+				opacity:.95;
+				text-shadow:1px 2px 6px rgba(0,0,0,.45);
+			}
+
+			/* 品牌按鈕（Button） */
+			.btn{
+				display:inline-block;
+				padding:10px 18px;
+				font-weight:600;
+				text-decoration:none;
+				border-radius:10px; /* 小圓角 */
+				background:var(--brand-brown);
+				color:#FFFFFF;
+				border:1px solid #7B5E57;
+				box-shadow:0 2px 6px rgba(0,0,0,.15);
+				transition:transform .2s ease, box-shadow .2s ease, filter .2s ease;
+			}
+			.btn:hover{ /* hover（懸停） */
+				transform:translateY(-1px);
+				box-shadow:0 4px 12px rgba(0,0,0,.25);
+			}
+			.btn:focus-visible{ /* focus（聚焦） */
+				outline:none;
+				box-shadow:0 0 0 3px rgba(216,201,167,.6);
+			}
+
+			/* 細微互動：滑入時略增彩度 */
+			.hero:hover::before,
+			.hero:hover::after{filter:saturate(105%)}
+			.hero:hover .panel{background:rgba(248,245,240,.55)}
+
+			/* 手機版（max-width:768px）：改為直式上下兩塊，移除遮罩過渡 */
+			@media (max-width:768px){
+				.hero{height:auto; min-height:0; border-width:4px}
+				.hero::before,
+				.hero::after{
+					position:static; display:block; height:38vh; min-height:240px;
+					-webkit-mask-image:none; mask-image:none;
+				}
+				.panel{position:static; transform:none; max-width:100%; margin:12px}
+				.panel.right{text-align:left}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<section class="hero" aria-label="中藥文化館引入">
+				<div class="tone"></div>
+				<div class="panel left">
+					<h2>本草藥閣</h2>
+					<p>探索藥材知識與科普。</p>
+					<a class="btn" href="#">進入</a>
+				</div>
+				<div class="panel right">
+					<h2>養生食光</h2>
+					<p>日常飲食與養生料理。</p>
+					<a class="btn" href="#">進入</a>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>

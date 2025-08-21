@@ -171,7 +171,7 @@ a {
   }
 }
 /* keyframes end*/
-#index section, #video div, #contact, #contactform .btn-animat, #contact .content #contactform .btn-animat {
+#index section, #video div, #about div, #contact, #contactform .btn-animat, #contact .content #contactform .btn-animat {
   display: flex !important;
   justify-content: center;
   align-items: center;
@@ -228,6 +228,22 @@ a {
   object-fit: cover;
   height: 100%;
   width: 100%;
+}
+
+#contact .content #contactform input {
+  border: solid 1px #cdaaab;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--lesser-4);
+  font-weight: 600;
+}
+#contact .content #contactform input:focus {
+  outline: 2px solid #cdaaab;
+}
+#contact .content #contactform input::placeholder {
+  color: #cdaaab;
+  font-size: 0.75rem;
+  font-weight: 400;
 }
 
 @font-face {
@@ -467,9 +483,56 @@ a {
 
 #about {
   position: relative;
+  background-color: #f3e4e4;
+}
+#about div {
+  position: absolute;
+  z-index: 1;
+  width: 60%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  flex-direction: column;
+}
+@media (max-width:820px) {
+  #about div {
+    width: 90%;
+  }
+}
+#about div p {
+  overflow: auto;
+  width: 90%;
+  margin-bottom: 50px;
+  padding-right: 10px;
+}
+#about div p::-webkit-scrollbar {
+  background-color: #f3e4e4;
+}
+#about div p::-webkit-scrollbar-button {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#about div p::-webkit-scrollbar-button:vertical:single-button:start {
+  background-image: url(../images/arrow-up.svg);
+}
+#about div p::-webkit-scrollbar-button:vertical:single-button:end {
+  background-image: url(../images/arrow-down.svg);
+}
+#about div p::-webkit-scrollbar-button:horizontal:single-button:start {
+  background-image: url(../images/arrow-left.svg);
+}
+#about div p::-webkit-scrollbar-button:horizontal:single-button:end {
+  background-image: url(../images/arrow-right.svg);
+}
+#about div p::-webkit-scrollbar-thumb {
+  background-color: #8f6b6d;
+  border-radius: 99px;
+}
+#about div p::-webkit-scrollbar-track {
+  background-color: #efdbdb;
+  border-radius: 99px;
 }
 #about video {
-  position: absolute;
   mix-blend-mode: overlay;
 }
 
