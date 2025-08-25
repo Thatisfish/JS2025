@@ -2,7 +2,7 @@
 @use "./keyrames";
 @use "./variables" as *;
 @use "./function" as *;
-@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&family=Kaushan+Script&display=swap');
 
 @font-face {
     font-family: Avenue;
@@ -307,47 +307,58 @@
         z-index: 1;
         width: 60%;
         height: 100%;
-        background-color:$alpha-w-70;
+        background-color: $alpha-w-70;
         @extend %flex-center;
-        @media ($mediaMd){
+
+        @media ($mediaMd) {
             width: 90%;
         }
+
         flex-direction: column;
-        p{
+
+        p {
             overflow: auto;
             width: 90%;
             margin-bottom: $space-xxl;
             padding-right: $space-xs;
-            &::-webkit-scrollbar{
+
+            &::-webkit-scrollbar {
                 background-color: $lesser-1;
             }
-            &::-webkit-scrollbar-button{
+
+            &::-webkit-scrollbar-button {
                 // background-color: $lesser-3;
                 // height: 12px;
                 // width: 12px;
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
-                &:vertical:single-button:start{
+
+                &:vertical:single-button:start {
                     background-image: url(../images/arrow-up.svg);
                 }
-                &:vertical:single-button:end{
+
+                &:vertical:single-button:end {
                     background-image: url(../images/arrow-down.svg);
                 }
-                &:horizontal:single-button:start{
+
+                &:horizontal:single-button:start {
                     background-image: url(../images/arrow-left.svg);
                 }
-                &:horizontal:single-button:end{
+
+                &:horizontal:single-button:end {
                     background-image: url(../images/arrow-right.svg);
                 }
             }
-            &::-webkit-scrollbar-thumb{
+
+            &::-webkit-scrollbar-thumb {
                 background-color: $lesser-4;
                 border-radius: $radius-ex;
             }
-            &::-webkit-scrollbar-track{
-                background-color: $lesser-2;   
-                border-radius: $radius-ex; 
+
+            &::-webkit-scrollbar-track {
+                background-color: $lesser-2;
+                border-radius: $radius-ex;
             }
         }
     }
@@ -421,9 +432,11 @@
             .btn-animat {
                 @extend %btn-animat;
             }
-            input{
+
+            input {
                 @extend %input-style;
             }
+
             // textarea{
 
             // }
@@ -509,5 +522,24 @@ footer {
             align-self: flex-start;
             margin-top: $space-xl;
         }
+    }
+
+    #gotop {
+        display: none;
+        width: 50px;
+        height: 50px;
+        background-color: $lesser-3;
+        border-radius: $radius-ex;
+        border: none;
+
+        position: fixed;
+        bottom: $space-xxl;
+        right: $space-xl;
+        cursor: pointer;
+        z-index: $z-ex;
+        &:hover{
+            background-color: $lesser-2;
+        }
+
     }
 }
