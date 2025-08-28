@@ -5,541 +5,608 @@
 @import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Ubuntu&family=Kaushan+Script&display=swap');
 
 @font-face {
-    font-family: Avenue;
-    src: url(../webfonts/Avenue\ de\ Madison.ttf);
+	font-family: Avenue;
+	src: url(../webfonts/Avenue\ de\ Madison.ttf);
 }
 
 @font-face {
-    font-family: Rosaline;
-    src: url(../webfonts/Rosaline.otf);
+	font-family: Rosaline;
+	src: url(../webfonts/Rosaline.otf);
 }
 
 /*---------- 共用區 ----------*/
 // 區塊標題
 .title {
-    margin: $space-ex 0 $space-xl;
+	margin: $space-ex 0 $space-xl;
 
-    * {
-        //.title裡面的所有子孫
-        text-align: center;
-    }
+	* {
+		//.title裡面的所有子孫
+		text-align: center;
+	}
 
-    h2 {
-        font-family: $family-dispaly;
-        font-size: $f-s-xxxl;
-        @include border-b;
-        font-weight: $f-w-b;
-        position: relative;
+	h2 {
+		font-family: $family-dispaly;
+		font-size: $f-s-xxxl;
+		@include border-b;
+		font-weight: $f-w-b;
+		position: relative;
 
-        &::before {
-            content: "";
-            position: absolute;
-            top: -5px;
-            left: -10px;
-            background-color: $lesser-4;
-            width: 15px;
-            height: 15px;
-            border-radius: $radius-ex;
-        }
+		&::before {
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: -10px;
+			background-color: $lesser-4;
+			width: 15px;
+			height: 15px;
+			border-radius: $radius-ex;
+		}
 
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 10px;
-            right: -5px;
-            background-color: $lesser-4;
-            width: 10px;
-            height: 10px;
-            border-radius: $radius-ex;
-        }
-    }
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 10px;
+			right: -5px;
+			background-color: $lesser-4;
+			width: 10px;
+			height: 10px;
+			border-radius: $radius-ex;
+		}
+	}
 
-    h3 {
-        font-family: $family-tc;
-        font-size: $f-s-lg;
-    }
+	h3 {
+		font-family: $family-tc;
+		font-size: $f-s-lg;
+	}
 
 
 }
 
 .logo {
-    width: 55px;
+	width: 55px;
 }
 
 .icon {
-    a {
-        width: 35px;
-        height: 35px;
-        margin: $space-xxs;
-    }
+	a {
+		width: 35px;
+		height: 35px;
+		margin: $space-xxs;
+	}
 }
 
 //迴圈不用調用，直接編譯語法(不可寫入function)
 @each $social in fb, ig, line {
-    .icon-#{$social} {
-        background-image: url(../images/icon-#{$social}.svg);
+	.icon-#{$social} {
+		background-image: url(../images/icon-#{$social}.svg);
 
-        &:hover {
-            background-image: url(../images/icon-#{$social}-hover.svg);
-        }
-    }
+		&:hover {
+			background-image: url(../images/icon-#{$social}-hover.svg);
+		}
+	}
 }
 
 .more {
-    width: 100px;
-    line-height: 50px;
-    text-align: center;
-    background-color: $lesser-4;
-    margin-top: $space-lg;
-    color: $Light;
-    border-radius: $radius-ex;
+	width: 100px;
+	line-height: 50px;
+	text-align: center;
+	background-color: $lesser-4;
+	margin-top: $space-lg;
+	color: $Light;
+	border-radius: $radius-ex;
 }
 
 /*---------- 頁首區 ----------*/
 #topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: $w-100;
-    z-index: $z-ex;
-    @extend %flex-between;
-    padding: $space-xs $space-xl;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $w-100;
+	z-index: $z-ex;
+	@extend %flex-between;
+	padding: $space-xs $space-xl;
 
-    ul {
-        @extend %flex-end;
-    }
+	.navbar {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
 
-    .menu {
-        padding: $space-x-xs;
-        border-radius: $radius-ex;
-        @include glassmorphism;
+		.hambuger {
+			background-color: transparent;
+			border: none;
+			margin-bottom: $space-xs;
 
-        a {
-            font-family: $family-en;
-            font-weight: $f-w-b;
-            margin: $space-xs;
-            @include border-b ($width: 2px, $color: transparent);
+			@media($mediaXl) {
+				display: none;
+			}
 
-            &:hover {
-                color: $Black;
-                @include border-b ($width: 2px, $color: $Black);
-            }
-        }
-    }
+			// 漢堡按鈕
+			.bar {
+				display: block;
+				width: 24px;
+				height: 4px;
+				background-color: $Charcoal;
+				margin: $space-xxs auto;
+			}
+
+			&.is-active {
+				.bar {
+					&:nth-child(1) {
+						transform: rotate(45deg) translate(5px, 8px);
+					}
+
+					&:nth-child(2) {
+						opacity: 0;
+					}
+
+					&:nth-child(3) {
+						transform: rotate(-45deg) translate(4.5px, -7.8px);
+					}
+				}
+			}
+		}
+
+		.navigation {
+			@media($mediaLg) {
+				@include glassmorphism;
+				border-radius: $radius-md;
+				flex-direction: column;
+				padding: $space-xs;
+
+				display: none;
+				@include amt($name: hide);
+
+				&.show {
+					display: flex;
+					@include amt($name: show)
+				}
+			}
+
+			ul {
+				@extend %flex-end;
+			}
+
+			.menu {
+				padding: $space-x-xs;
+				border-radius: $radius-ex;
+
+				@media($mediaXl) {
+					@include glassmorphism;
+				}
+
+				@media($mediaLg) {
+					flex-direction: column;
+					order: -1;
+				}
+
+				a {
+					font-family: $family-en;
+					font-weight: $f-w-b;
+					margin: $space-xs;
+					@include border-b ($width: 2px, $color: transparent);
+
+					&:hover {
+						color: $Black;
+						@include border-b ($width: 2px, $color: $Black);
+					}
+				}
+			}
+		}
+	}
 }
 
 /* 主要內容區 */
 #index {
-    section {
-        @extend %flex-center;
-        flex-direction: column;
-        height: 100vh;
+	section {
+		@extend %flex-center;
+		flex-direction: column;
+		height: 100vh;
 
-        @media($mediaMd) {
-            &#video {
-                height: auto;
-            }
-        }
-    }
+		@media($mediaMd) {
+			&#video {
+				height: auto;
+			}
+		}
+	}
 }
 
 .list-box {
-    display: flex;
-    gap: $space-xl;
-    width: $w-80;
-    max-width: 1250px;
+	display: flex;
+	gap: $space-xl;
+	width: $w-80;
+	max-width: 1250px;
 
-    .item {
-        flex: 1;
-        @include bordered;
-        border-radius: $radius-md;
-        overflow: hidden;
-    }
+	.item {
+		flex: 1;
+		@include bordered;
+		border-radius: $radius-md;
+		overflow: hidden;
+	}
 }
 
 // 最新消息
 #news {
-    background-color: $bg-1;
+	background-color: $bg-1;
 
-    article {
-        @media ($mediaMd) {
-            &:last-child {
-                display: none;
-            }
-        }
+	article {
+		@media ($mediaMd) {
+			&:last-child {
+				display: none;
+			}
+		}
 
-        @media ($mediaSm) {
-            &:nth-child(2) {
-                display: none;
-            }
-        }
+		@media ($mediaSm) {
+			&:nth-child(2) {
+				display: none;
+			}
+		}
 
-        a {
-            &:hover {
-                .text-box {
-                    background-color: $Light;
-                }
+		a {
+			&:hover {
+				.text-box {
+					background-color: $Light;
+				}
 
-                figure {
-                    filter: brightness(70%);
-                }
-            }
+				figure {
+					filter: brightness(70%);
+				}
+			}
 
-            figure {
-                height: 30vh;
-                transition: $speed-fast;
+			figure {
+				height: 30vh;
+				transition: $speed-fast;
 
-                img {
-                    @extend %img-cover;
-                }
-            }
+				img {
+					@extend %img-cover;
+				}
+			}
 
-            .text-box {
-                padding: $space-md;
-                // background-color: transparent;
-                transition: $speed-fast;
+			.text-box {
+				padding: $space-md;
+				// background-color: transparent;
+				transition: $speed-fast;
 
-                h2 {
-                    @extend %list-title;
-                }
+				h2 {
+					@extend %list-title;
+				}
 
-                p {
-                    @extend %multiple-lines;
-                    -webkit-line-clamp: 5;
-                }
-            }
-        }
-    }
+				p {
+					@extend %multiple-lines;
+					-webkit-line-clamp: 5;
+				}
+			}
+		}
+	}
 }
 
 // 服務項目
 #service {
-    background-color: $bg-2;
+	background-color: $bg-2;
 
-    .list-box {
-        @media ($mediaMd) {
-            flex-direction: column;
-            height: 70vh;
-        }
+	.list-box {
+		@media ($mediaMd) {
+			flex-direction: column;
+			height: 70vh;
+		}
 
-        .item {
-            display: flex;
-            align-items: flex-end;
-            height: 50vh;
-            background-size: cover;
-            background-position: center;
+		.item {
+			display: flex;
+			align-items: flex-end;
+			height: 50vh;
+			background-size: cover;
+			background-position: center;
 
-            @media ($mediaMd) {
-                &:nth-child(n+3) {
-                    display: none;
-                }
-            }
+			@media ($mediaMd) {
+				&:nth-child(n+3) {
+					display: none;
+				}
+			}
 
-            @media ($mediaSm) {
-                &:nth-child(n+2) {
-                    display: none;
-                }
-            }
+			@media ($mediaSm) {
+				&:nth-child(n+2) {
+					display: none;
+				}
+			}
 
-            &:nth-child(1) {
-                background-image: url(../images/pt_svc1.jpg)
-            }
+			&:nth-child(1) {
+				background-image: url(../images/pt_svc1.jpg)
+			}
 
-            &:nth-child(2) {
-                background-image: url(../images/pt_svc2.jpg)
-            }
+			&:nth-child(2) {
+				background-image: url(../images/pt_svc2.jpg)
+			}
 
-            &:nth-child(3) {
-                background-image: url(../images/pt_svc3.jpg)
-            }
+			&:nth-child(3) {
+				background-image: url(../images/pt_svc3.jpg)
+			}
 
-            &:nth-child(4) {
-                background-image: url(../images/pt_svc4.jpg)
-            }
+			&:nth-child(4) {
+				background-image: url(../images/pt_svc4.jpg)
+			}
 
-            a {
-                width: 100%;
-                background-color: $alpha-b-60;
-                color: $Light;
-                padding: $space-md;
+			a {
+				width: 100%;
+				background-color: $alpha-b-60;
+				color: $Light;
+				padding: $space-md;
 
-                h2 {
-                    @extend %list-title;
-                }
+				h2 {
+					@extend %list-title;
+				}
 
-                p {
-                    @extend %single-line;
-                }
+				p {
+					@extend %single-line;
+				}
 
-                &:hover {
-                    color: $Black;
-                    background-color: $alpha-w-70;
-                }
-            }
-        }
-    }
+				&:hover {
+					color: $Black;
+					background-color: $alpha-w-70;
+				}
+			}
+		}
+	}
 }
 
 // 相關影片
 #video {
-    background-image: url(../images/bg_contact.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+	background-image: url(../images/bg_contact.jpg);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
 
-    div {
-        @extend %flex-center;
-        height: 60vh;
+	div {
+		@extend %flex-center;
+		height: 60vh;
 
-        video {
-            height: 100%;
-        }
-    }
+		video {
+			height: 100%;
+		}
+	}
 }
 
 // 關於我們
 #about {
-    position: relative;
-    background-color: $lesser-1;
+	position: relative;
+	background-color: $lesser-1;
 
-    div {
-        position: absolute;
-        z-index: 1;
-        width: 60%;
-        height: 100%;
-        background-color: $alpha-w-70;
-        @extend %flex-center;
+	div {
+		position: absolute;
+		z-index: 1;
+		width: 60%;
+		height: 100%;
+		background-color: $alpha-w-70;
+		@extend %flex-center;
 
-        @media ($mediaMd) {
-            width: 90%;
-        }
+		@media ($mediaMd) {
+			width: 90%;
+		}
 
-        flex-direction: column;
+		flex-direction: column;
 
-        p {
-            overflow: auto;
-            width: 90%;
-            margin-bottom: $space-xxl;
-            padding-right: $space-xs;
+		p {
+			overflow: auto;
+			width: 90%;
+			margin-bottom: $space-xxl;
+			padding-right: $space-xs;
 
-            &::-webkit-scrollbar {
-                background-color: $lesser-1;
-            }
+			&::-webkit-scrollbar {
+				background-color: $lesser-1;
+			}
 
-            &::-webkit-scrollbar-button {
-                // background-color: $lesser-3;
-                // height: 12px;
-                // width: 12px;
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
+			&::-webkit-scrollbar-button {
+				// background-color: $lesser-3;
+				// height: 12px;
+				// width: 12px;
+				background-size: contain;
+				background-position: center;
+				background-repeat: no-repeat;
 
-                &:vertical:single-button:start {
-                    background-image: url(../images/arrow-up.svg);
-                }
+				&:vertical:single-button:start {
+					background-image: url(../images/arrow-up.svg);
+				}
 
-                &:vertical:single-button:end {
-                    background-image: url(../images/arrow-down.svg);
-                }
+				&:vertical:single-button:end {
+					background-image: url(../images/arrow-down.svg);
+				}
 
-                &:horizontal:single-button:start {
-                    background-image: url(../images/arrow-left.svg);
-                }
+				&:horizontal:single-button:start {
+					background-image: url(../images/arrow-left.svg);
+				}
 
-                &:horizontal:single-button:end {
-                    background-image: url(../images/arrow-right.svg);
-                }
-            }
+				&:horizontal:single-button:end {
+					background-image: url(../images/arrow-right.svg);
+				}
+			}
 
-            &::-webkit-scrollbar-thumb {
-                background-color: $lesser-4;
-                border-radius: $radius-ex;
-            }
+			&::-webkit-scrollbar-thumb {
+				background-color: $lesser-4;
+				border-radius: $radius-ex;
+			}
 
-            &::-webkit-scrollbar-track {
-                background-color: $lesser-2;
-                border-radius: $radius-ex;
-            }
-        }
-    }
+			&::-webkit-scrollbar-track {
+				background-color: $lesser-2;
+				border-radius: $radius-ex;
+			}
+		}
+	}
 
-    video {
-        @extend %img-cover;
-        mix-blend-mode: overlay;
-        // filter: brightness(70%)
-    }
+	video {
+		@extend %img-cover;
+		mix-blend-mode: overlay;
+		// filter: brightness(70%)
+	}
 }
 
 /* 聯絡我們 */
 #contactform {
-    .btn-animat {
-        @extend %btn-animat;
-    }
+	.btn-animat {
+		@extend %btn-animat;
+	}
 }
 
 /* 聯絡表單 */
 #contact {
-    position: relative;
-    overflow: hidden;
-    @extend %flex-center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: $bg-1;
+	position: relative;
+	overflow: hidden;
+	@extend %flex-center;
+	flex-direction: column;
+	height: 100vh;
+	background-color: $bg-1;
 
-    @media($mediaMd) {
-        height: auto;
-    }
+	@media($mediaMd) {
+		height: auto;
+	}
 
-    .content {
-        display: flex;
-        width: $w-80;
+	.content {
+		display: flex;
+		width: $w-80;
 
-        @media ($mediaSm) {
-            flex-direction: column;
-        }
+		@media ($mediaSm) {
+			flex-direction: column;
+		}
 
-        >* {
-            flex: 1;
-            margin: $space-x-xl;
-        }
+		>* {
+			flex: 1;
+			margin: $space-x-xl;
+		}
 
-        h1 {
-            font-size: $f-s-xl;
-            font-weight: $f-w-b;
-        }
+		h1 {
+			font-size: $f-s-xl;
+			font-weight: $f-w-b;
+		}
 
-        address {
-            font-size: $f-s-sm;
-            font-style: normal;
-            margin: $space-y-md;
-        }
+		address {
+			font-size: $f-s-sm;
+			font-style: normal;
+			margin: $space-y-md;
+		}
 
-        iframe {
-            width: $w-100;
-            height: 300px;
-        }
+		iframe {
+			width: $w-100;
+			height: 300px;
+		}
 
-        #contactform {
-            >* {
-                display: block;
-                width: $w-100;
-            }
+		#contactform {
+			>* {
+				display: block;
+				width: $w-100;
+			}
 
-            label {
-                margin: $space-label;
-            }
+			label {
+				margin: $space-label;
+			}
 
-            .btn-animat {
-                @extend %btn-animat;
-            }
+			.btn-animat {
+				@extend %btn-animat;
+			}
 
-            input {
-                @extend %input-style;
-            }
+			input {
+				@extend %input-style;
+			}
 
-            // textarea{
+			// textarea{
 
-            // }
-        }
-    }
+			// }
+		}
+	}
 
-    figure {
-        position: absolute;
-        width: 250px;
+	figure {
+		position: absolute;
+		width: 250px;
 
-        @media($mediaMd) {
-            width: 200px;
-        }
+		@media($mediaMd) {
+			width: 200px;
+		}
 
-        @media ($mediaSm) {
-            display: none;
-        }
-    }
+		@media ($mediaSm) {
+			display: none;
+		}
+	}
 
-    .flower1 {
-        left: 0;
-        bottom: -50px;
-    }
+	.flower1 {
+		left: 0;
+		bottom: -50px;
+	}
 
-    .flower2 {
-        right: 0;
-        top: 100px;
-        transform: rotate(-25deg);
-    }
+	.flower2 {
+		right: 0;
+		top: 100px;
+		transform: rotate(-25deg);
+	}
 }
 
 /*------------------------- 頁尾區 -------------------------*/
 footer {
-    @extend %flex-between;
-    padding: $space-md $space-xl;
-    background-color: $lesser-4;
-    color: $Light;
+	@extend %flex-between;
+	padding: $space-md $space-xl;
+	background-color: $lesser-4;
+	color: $Light;
 
-    @media($mediaLg) {
-        flex-direction: column;
-    }
+	@media($mediaLg) {
+		flex-direction: column;
+	}
 
-    h2 {
-        font-size: $f-s-xl;
+	h2 {
+		font-size: $f-s-xl;
 
-        span {
-            font-size: $f-s-md;
-        }
-    }
+		span {
+			font-size: $f-s-md;
+		}
+	}
 
-    .sitemap {
-        display: flex;
+	.sitemap {
+		display: flex;
 
-        @media($mediaMd) {
-            margin-top: $space-lg;
-        }
+		@media($mediaMd) {
+			margin-top: $space-lg;
+		}
 
-        @media($mediaSm) {
-            flex-direction: column;
+		@media($mediaSm) {
+			flex-direction: column;
 
-            ul {
-                padding-left: $space-md;
+			ul {
+				padding-left: $space-md;
 
-                li {
-                    padding: $space-y-xs;
-                }
-            }
-        }
+				li {
+					padding: $space-y-xs;
+				}
+			}
+		}
 
-        >li {
-            margin: $space-x-xs;
-        }
-    }
+		>li {
+			margin: $space-x-xs;
+		}
+	}
 
-    a {
-        color: $Light;
-    }
+	a {
+		color: $Light;
+	}
 
-    small {
-        align-self: flex-end;
+	small {
+		align-self: flex-end;
 
-        @media($mediaSm) {
-            align-self: flex-start;
-            margin-top: $space-xl;
-        }
-    }
+		@media($mediaSm) {
+			align-self: flex-start;
+			margin-top: $space-xl;
+		}
+	}
 
-    #gotop {
-        display: none;
-        width: 50px;
-        height: 50px;
-        background-color: $lesser-3;
-        border-radius: $radius-ex;
-        border: none;
+	#gotop {
+		display: none;
+		width: 50px;
+		height: 50px;
+		background-color: $lesser-3;
+		border-radius: $radius-ex;
+		border: none;
 
-        position: fixed;
-        bottom: $space-xxl;
-        right: $space-xl;
-        cursor: pointer;
-        z-index: $z-ex;
-        &:hover{
-            background-color: $lesser-2;
-        }
+		position: fixed;
+		bottom: $space-xxl;
+		right: $space-xl;
+		cursor: pointer;
+		z-index: $z-ex;
 
-    }
+		&:hover {
+			background-color: $lesser-2;
+		}
+
+	}
 }

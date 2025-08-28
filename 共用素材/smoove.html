@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<title>滾動滑入</title>
+	<style>
+		body {
+			margin: 0;
+		}
+
+		header {
+			background-color: antiquewhite;
+			line-height: 100vh;
+			text-align: center;
+			font-size: 3rem;
+			color: white;
+		}
+
+		footer {
+			background-color: cornflowerblue;
+			line-height: 40vh;
+			text-align: center;
+			font-size: 3rem;
+			color: white;
+		}
+
+		.row {
+			display: flex;
+		}
+
+		.smoove {
+			background-color: aquamarine;
+			height: 300px;
+			flex: 1;
+			margin: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<header>BANNER</header>
+	<main>
+		<!-- 預設淡入淡出 -->
+		<div class="row">
+			<div class="smoove"></div>
+			<div class="smoove"></div>
+		</div>
+		<!-- 旋轉載入 -->
+		<div class="row">
+			<div class="smoove" data-move-x="-500px" data-rotate="-90deg"></div>
+			<div class="smoove smo-per" data-move-y="500px"></div>
+			<div class="smoove" data-move-x="500px" data-rotate="90deg"></div>
+		</div>
+		<div class="row">
+			<div class="smoove" data-move-x="-300px" data-move-y="200px"></div>
+			<div class="smoove" data-move-x="-150px" data-move-y="200px"></div>
+			<div class="smoove" data-move-x="150px" data-move-y="200px"></div>
+			<div class="smoove" data-move-x="300px" data-move-y="200px"></div>
+		</div>
+		<!-- 翻轉載入 -->
+		<div class="row">
+			<div class="smoove" data-move-x="-150%" data-rotate-y="-90deg"></div>
+			<div class="smoove" data-move-x="150%" data-rotate-y="90deg"></div>
+		</div>
+		<!-- 遠近載入 -->
+		<div class="row">
+			<div class="smoove smo-z"></div>
+			<div class="smoove smo-z"></div>
+			<div class="smoove smo-z"></div>
+		</div>
+		<!-- 透視 -->
+		<div class="row">
+			<div class="smoove smo-per"></div>
+			<div class="smoove smo-per"></div>
+			<div class="smoove smo-per"></div>
+			<div class="smoove smo-per"></div>
+			<div class="smoove smo-per"></div>
+		</div>
+	</main>
+	<footer>FOOTER</footer>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smoove/0.2.10/jquery.smoove.min.js"></script>
+	<script>
+		$('.smoove').smoove({
+			offest: 300
+		});
+		$('.smo-z').smoove({
+			moveZ: '500px'
+		});
+		$('.smo-per').smoove({
+			rotateX: '90deg',
+			moveZ: '-500px'
+		});
+	</script>
+</body>
+
+</html>
